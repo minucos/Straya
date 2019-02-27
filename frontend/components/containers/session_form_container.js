@@ -3,16 +3,16 @@ import SessionForm from './session';
 
 const mapStateToProps = (state) => {
     let errors = state.errors.renderJSON;
-
+    
     return ({
         errors: errors,
-        formType: "signup",
+        formType: "login",
     })
 }
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        processForm: (athlete) => dispatch(signup(athlete))
+        processForm: (athlete) => dispatch(login(athlete))
     })
 }
 

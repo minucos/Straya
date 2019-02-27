@@ -8,7 +8,7 @@ class Api::AthletesController < ApplicationController
         @athlete = Athlete.new(athlete_params)
 
         if @athlete.save
-            login(@athlete)
+            login!(@athlete)
             render :show
         else
             render json: @athlete.errors.full_messages, status: 422 
