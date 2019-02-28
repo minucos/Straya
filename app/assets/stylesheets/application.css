@@ -13,8 +13,6 @@
  *= require_self
  */
 
- @import "base/reset";
-
  @import "components/navbar.scss";
 
  @import "components/session.scss";
