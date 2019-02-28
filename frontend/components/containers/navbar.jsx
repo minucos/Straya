@@ -26,12 +26,18 @@ const NavBar = (props) => {
                         <Link id="global-nav-logo" to="/">STRAYA</Link>
                     </h1>
                     <div className="nav-dropdown">
-                        <button className="nav-dropdown-btn">P</button>
+                        <button className="nav-dropdown-btn">
+                            <img 
+                                id="nav-image"
+                                src={window.images.demo_profile_pic} 
+                                alt="Profile Pic"
+                            />
+                        </button>
                         <div className="nav-dropdown-content">
-                            <Link 
-                                className="nav-dropdown-item"
-                                to="/athlete/profile">
-                                Profile
+                            <Link to="/athlete/profile">
+                                <button className="nav-dropdown-item">
+                                    Profile
+                                </button>
                             </Link>
                             <button 
                                 className="nav-dropdown-item"

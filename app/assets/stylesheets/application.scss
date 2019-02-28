@@ -13,8 +13,13 @@
  *= require_self
  */
 
+ @import "base/reset.scss";
+
  @import "components/navbar.scss";
+
+ @import "components/splash.scss";
 
  @import "components/session.scss";
 
- @import "components/splash.scss";
+ @import "components/profile.scss";
+

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Profile from "./profile";
+import Dashboard from "./dashboard";
 import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,4 +8,4 @@ const mapStateToProps = (state, ownProps) => {
     })
 };
 
-export default connect(mapStateToProps, null)(Profile);
+export default connect(mapStateToProps,null)(Dashboard);
