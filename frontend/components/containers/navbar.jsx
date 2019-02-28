@@ -11,10 +11,9 @@ const NavBar = (props) => {
                         <Link id="global-nav-logo" to="/">STRAYA</Link>
                     </h1>
                     <Link 
-                        className="btn" 
                         id="login-btn" 
                         to="/login"
-                    >Log In</Link>
+                    >LOG IN</Link>
                 </nav>
                 
             </div>
