@@ -56,14 +56,16 @@
     font-size: 15px;
     height: 40px;
     width: 100px;
+    text-align: left;
     text-decoration: none;
+    margin-right: 0;
 }
 .nav-dropdown:hover  .nav-dropdown-content {
     display: block;
     left: auto;
-    right: 0;
-
+    right: 100px;
 }
+
 .nav-dropdown:hover .nav-dropdown-btn {
     border: 1px solid rgb(173,173,173);
     border-bottom: none;
