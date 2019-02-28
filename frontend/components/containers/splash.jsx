@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 
 class Splash extends React.Component {
+    constructor(props) {
+        super(props);
 
-    demoUser() {
-        
+        this.loginDemo = this.loginDemo.bind(this);
     }
 
+    loginDemo() {
+        this.props.login({ email: "demouser", password: "password" });
+    };
+    
     render() {
         return (
             <div className="splash-page">
@@ -15,7 +20,7 @@ class Splash extends React.Component {
                 <div className="splash-page-content">
                     <img id="splash-image" src={window.images.splash_image} alt="Device-image"/>
                     <ul className="splash-page-btns">
-                        <li id="splash-demo-login">
+                        <li id="splash-demo-login" onClick={this.loginDemo}>
                             Log in with Demo User
                         </li>
                         <Link className="splash-link" to="/signup">

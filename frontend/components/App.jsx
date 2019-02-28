@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBarContainer from "./containers/navbar_container";
-import Splash from "./splash";
+import SplashContainer from "./containers/splash_container";
 import SessionFormContainer from "./containers/session_form_container";
 import SignupFormContainer from "./containers/signup_form_container";
 import ProfileContainer from "./containers/profile_container";
@@ -12,7 +12,7 @@ const App = () => (
         <NavBarContainer />
 
         <ProtectedRoute path="/athlete/profile" component={ProfileContainer}/>
-        <AuthRoute exact path="/" component={Splash}/>
+        <AuthRoute exact path="/" component={SplashContainer}/>
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
     </div>
