@@ -7,9 +7,11 @@ const NavBar = (props) => {
         return (
             <div id="global-nav">
                 <nav className="nav-bar">
-                    <h1>
-                        <Link id="global-nav-logo" to="/">STRAYA</Link>
-                    </h1>
+                    <div className="left-navbar">
+                        <h1>
+                            <Link id="global-nav-logo" to="/">STRAYA</Link>
+                        </h1>
+                    </div>
                     <Link 
                         id="login-btn" 
                         to="/login"
@@ -22,25 +24,46 @@ const NavBar = (props) => {
         return (
             <div>
                 <nav className="nav-bar">
-                    <h1>
-                        <Link id="global-nav-logo" to="/">STRAYA</Link>
-                    </h1>
-                    <div className="nav-dropdown">
-                        <button className="nav-dropdown-btn">
+                    <div className="left-navbar">
+                        <h1>
+                            <Link id="global-nav-logo" to="/">STRAYA</Link>
+                        </h1>
+
+                        <div className="nav-dropdown training-nav">
+                            <button className="nav-dropdown-btn training-nav">
+                                Training
+                            </button>
+                            <div className="nav-dropdown-content training-nav">
+                                <Link to="/athlete/routes">
+                                    <button className="nav-dropdown-item training-nav">
+                                        My Routes
+                                    </button>
+                                </Link>
+                                <Link to="/athlete/workouts">
+                                    <button className="nav-dropdown-item training-nav">
+                                        My Workouts
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="nav-dropdown profile-nav">
+                        <button className="nav-dropdown-btn profile-nav">
                             <img 
                                 id="nav-image"
                                 src={window.images.demo_profile_pic} 
                                 alt="Profile Pic"
                             />
                         </button>
-                        <div className="nav-dropdown-content">
+                        <div className="nav-dropdown-content profile-nav">
                             <Link to="/athlete/profile">
-                                <button className="nav-dropdown-item">
+                                <button className="nav-dropdown-item profile-nav">
                                     Profile
                                 </button>
                             </Link>
                             <button 
-                                className="nav-dropdown-item"
+                                className="nav-dropdown-item profile-nav"
                                 onClick={props.logout}>
                                 Logout
                             </button>

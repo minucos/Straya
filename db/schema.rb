@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_201402) do
+ActiveRecord::Schema.define(version: 2019_02_28_192558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,27 @@ ActiveRecord::Schema.define(version: 2019_02_26_201402) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_athletes_on_email", unique: true
     t.index ["session_token"], name: "index_athletes_on_session_token", unique: true
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.float "lat", null: false
+    t.float "lng", null: false
+    t.integer "route_id", null: false
+    t.integer "ord", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_locations_on_route_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "location", null: false
+    t.integer "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_routes_on_creator_id"
+    t.index ["location"], name: "index_routes_on_location"
   end
 
 end

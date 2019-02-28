@@ -15,10 +15,6 @@ class Api::AthletesController < ApplicationController
         end 
     end 
 
-    def show
-
-    end 
-
     private
 
     def athlete_params
