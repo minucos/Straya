@@ -1,19 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AuthRoute } from '../../utils/route_util';
 
 const NavBar = (props) => {
     if (props.currentUser === undefined) {
         return (
-            <div>
-                <Link to="/login">Sign In</Link> OR
-                <Link to="/signup"> Sign Up</Link>
+            <div id="global-nav">
+                <nav className="nav-bar">
+                    <h1>
+                        <Link id="global-nav-logo" to="/">STRAYA</Link>
+                    </h1>
+                    <Link 
+                        className="btn" 
+                        id="login-btn" 
+                        to="/login"
+                    >Log In</Link>
+                </nav>
+                
             </div>
         )
     } else {
         return (
             <div>
-                <h3>Welcome, {props.currentUser.fname}</h3>
-                <button onClick={props.logout}>Log out</button>
+                <nav className="nav-bar">
+                    <h1>
+                        <Link id="global-nav-logo" to="/">STRAYA</Link>
+                    </h1>
+                    <div className="nav-dropdown">
+                        <button className="nav-dropdown-btn">P</button>
+                        <div className="nav-dropdown-content">
+                            <Link 
+                                className="nav-dropdown-item"
+                                to="/athlete/profile">
+                                Profile
+                            </Link>
+                            <button 
+                                className="nav-dropdown-item"
+                                onClick={props.logout}>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </nav>
             </div>
         )
     }

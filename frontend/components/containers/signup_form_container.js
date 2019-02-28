@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import SessionForm from './session';
 
 const mapStateToProps = (state) => {
-    let errors = state.errors.renderJSON;
+    let errors = state.errors.session.session;
 
     return ({
         errors: errors,

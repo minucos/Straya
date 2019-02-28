@@ -1,0 +1,44 @@
+.splash-page {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#splash-page-heading {
+    color: rgb(44,45,49);
+    font-size: 46px;
+    text-align: center;
+}
+
+.splash-page-content {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width:  50%;
+    justify-content: space-around;
+}
+
+.splash-link {
+    text-decoration: none;
+    color: rgb(44,45,49);
+}
+
+.splash-page-btns {
+    list-style: none;
+    margin-left: 0px;
+    text-align: center
+}
+.splash-page-btns li {
+    padding: 20px;
+    margin: 20px 0px;
+    border: 1px solid rgb(173,173,173);
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.splash-page-btns li:hover {
+    background: rgb(240,240,240);
+}
+
+.splash-page-btn {
+    color: rgb(252,76,3);
+}

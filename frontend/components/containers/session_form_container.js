@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import SessionForm from './session';
 
 const mapStateToProps = (state) => {
-    let errors = state.errors.renderJSON;
-    
+    let errors = state.errors.session.session;
+    // debugger
     return ({
         errors: errors,
         formType: "login",

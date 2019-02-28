@@ -5,7 +5,7 @@ class SessionForm extends React.Component {
 
     constructor(props) {
         super(props);
-
+        // debugger
         this.state = { email: "", password: "", fname: "", lname: "" };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -22,82 +22,47 @@ class SessionForm extends React.Component {
         e.preventDefault();
 
         this.props.processForm(this.state)
-        .then(this.props.history.push("/"));
     };
 
     render() {
+
+        let heading = "Join Straya today, it's Free.";
+        let linkMessage = "Already a user? Login!";
+        let linkUrl = "/login";
+        let buttonText = "Create Account";
+
         if (this.props.formType === "login") {
-            return (
-                <div>
-                    <h2>Log into your account</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Email: 
-                            <input 
-                                type="text" 
-                                value={this.state.email}
-                                onChange={this.update("email")}
-                            />
-                        </label>
-                        <br/>
-                        <label>Password: 
-                            <input 
-                                type="password" 
-                                value={this.state.password}
-                                onChange={this.update("password")}
-                            />
-                        </label>
-                        <br/>
-                        <input type="submit" value="Log in"/>
-                        <br/>
-                        <Link to="/signup">Not a user? Sign up!</Link>
-                    </form>
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <h2>Create an account</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Email:
-                                <input
-                                type="text"
-                                value={this.state.email}
-                                onChange={this.update("email")}
-                            />
-                        </label>
-                        <br/>
-                        <label>Firstname:
-                                <input
-                                type="text"
-                                value={this.state.fname}
-                                onChange={this.update("fname")}
-                            />
-                        </label>
-                        <br/>
-                        <label>Lastname:
-                                <input
-                                type="text"
-                                value={this.state.lname}
-                                onChange={this.update("lname")}
-                            />
-                        </label>
-                        <br/>
-                        <label>Password:
-                                <input
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.update("password")}
-                            />
-                        </label>
-                        <br />
-                        <input type="submit" value="Create account" />
-                        <br/>
-                        <Link to="/login">Already a user? Log in!</Link>
-                    </form>
-                </div>
-            )
+            heading = "Log In";
+            linkMessage = "Not a user? Sign up!";
+            linkUrl = "/signup";
+            buttonText = "Log In";
         }
-    };
+
+        return (
+            <div id="session">
+                <div id="session-container">
+                    <h2 id="session-form-title">{heading}</h2>
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <input 
+                            type="text" 
+                            value={this.state.email}
+                            placeholder="Your Email"
+                            onChange={this.update("email")}
+                        />
+                        <input 
+                            type="password" 
+                            value={this.state.password}
+                            placeholder="Password"
+                            onChange={this.update("password")}
+                        />
+                        <input type="submit" value={buttonText}/>
+                    </form>
+                        <ul id="session-errors">{this.props.errors}</ul>
+                        <Link className="session-link" to={linkUrl}>{linkMessage}</Link>
+                </div>
+            </div>
+        )
+    }
 };
 
 export default SessionForm;

@@ -1,15 +1,18 @@
 import React from 'react';
 import NavBarContainer from "./containers/navbar_container";
+import Splash from "./splash";
 import SessionFormContainer from "./containers/session_form_container";
 import SignupFormContainer from "./containers/signup_form_container";
-import { Route, Switch } from 'react-router-dom';
-import { AuthRoute } from "../utils/route_util";
+import ProfileContainer from "./containers/profile_container";
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 const App = () => (
     <div>
-        <h1>Straya</h1>
         <NavBarContainer />
 
+        <ProtectedRoute path="/athlete/profile" component={ProfileContainer}/>
+        <AuthRoute exact path="/" component={Splash}/>
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
     </div>
