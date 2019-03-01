@@ -2,55 +2,92 @@
     background-image: url(https://i.pinimg.com/originals/bf/72/9b/bf729b72a8d853620f5b6c5636d2f0f9.jpg);
     height: 100vh;
     width: 100vw;
-    margin: 0px;
-    padding: 0px;
+    margin-top: 0px;
+    padding-top: 120px;
 }
 
 #session-container {
-    padding: 50px;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    padding: 0px 10px;
+    width: 380px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    background: rgba(0,0,0,0.8);
 }
 
 #session-form-title {
     font-size: 35px;
     color: rgb(250,250,250);
     background: rgba(0,0,0,0.9);
-    padding: 20px;
-    margin: 0px;
+    padding: 10px;
+    margin: 0px 10px;
     width: 100%;
     text-align: center;
 }
+
+#submit-btn, #demo-login {
+    margin: 20px;
+    padding: 0px;
+    background: rgb(252,76,3);
+    color: rgb(250,250,250);
+    border: 1px solid rgb(252,76,3);
+    border-radius: 5px;
+    width: 300px;
+    height: 45px;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+#demo-login {
+    background: rgb(59,89,151);
+    border: 1px solid rgb(59,89,151);
+}
+
+#demo-login:hover {
+    background: rgb(19,49,111);
+}
+
+#session-text {
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(255,255,255);
+    margin: 0px;
+    padding: 0px;
+}
+
 .session-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: rgb(250,250,250);
-    background: rgba(0,0,0,0.75);
-    padding: 20px;
-    margin: 0px;
+    padding: 0px;
+    margin: 10px 0px;
     width: 100%;
 }
 
 .session-form input {
-    font-size: 20px;
-    height: 35px;
-    width:  80%;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(250,250,250,0.5);
+    box-sizing: border-box;
+    font-size: 15px;
+    height: 45px;
+    width:  300px;
     margin: 10px;
+    padding: 0px 10px;
 }
 
-.session-submit {
-    font-size: 20px;
-    height: 35px;
-    width:  80%;
-    margin: 10px;
+.session-form input:focus {
+    background: rgba(250,250,250,0.5)
 }
 
-.session_link {
-    text-align: center;
+#session-link, #session-message {
+    margin: 10px;
+    color: rgb(250,250,250);
 }

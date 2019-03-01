@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        processForm: (athlete) => dispatch(signup(athlete))
+        processForm: (athlete) => dispatch(signup(athlete)),
+        processDemo: (athlete) => dispatch(login(athlete)),
     })
 }
 

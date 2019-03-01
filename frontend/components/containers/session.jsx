@@ -5,9 +5,12 @@ class SessionForm extends React.Component {
 
     constructor(props) {
         super(props);
-        // debugger
+        
         this.state = { email: "", password: "", fname: "", lname: "" };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
+        
+        this.loginDemo = this.loginDemo.bind(this);
     }
 
     update(field) {
@@ -24,16 +27,24 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state)
     };
 
+    loginDemo() {
+        this.props.processDemo({ email: "test", password: "password" });
+    };
+
     render() {
 
         let heading = "Join Straya today, it's Free.";
-        let linkMessage = "Already a user? Login!";
+        let message = "Already a user?"
+        let sessionText = "or sign up with your email";
+        let linkText = "Login!";
         let linkUrl = "/login";
-        let buttonText = "Create Account";
+        let buttonText = "Sign Up";
 
         if (this.props.formType === "login") {
             heading = "Log In";
-            linkMessage = "Not a user? Sign up!";
+            sessionText = "or log in with your email"
+            message = "Not a user?"
+            linkText = "Sign up!";
             linkUrl = "/signup";
             buttonText = "Log In";
         }
@@ -42,6 +53,11 @@ class SessionForm extends React.Component {
             <div id="session">
                 <div id="session-container">
                     <h2 id="session-form-title">{heading}</h2>
+
+                    <button id="demo-login" onClick={this.loginDemo}>
+                        Log in with Demo User
+                    </button>
+                    <p id="session-text">{sessionText}</p>
                     <form className="session-form" onSubmit={this.handleSubmit}>
                         <input 
                             type="text" 
@@ -55,10 +71,10 @@ class SessionForm extends React.Component {
                             placeholder="Password"
                             onChange={this.update("password")}
                         />
-                        <input type="submit" value={buttonText}/>
+                        <input id="submit-btn" type="submit" value={buttonText}/>
                     </form>
+                    <p id="session-message">{message}<Link id="session-link" to={linkUrl}>{linkText}</Link></p>
                         <ul id="session-errors">{this.props.errors}</ul>
-                        <Link className="session-link" to={linkUrl}>{linkMessage}</Link>
                 </div>
             </div>
         )
