@@ -23,6 +23,9 @@ class Splash extends React.Component {
                         <li id="splash-demo-login" onClick={this.loginDemo}>
                             Log in with Demo User
                         </li>
+                        <li id="or-line">
+                            ------------------ or ------------------
+                        </li>
                         <Link className="splash-link" to="/signup">
                             <li id="splash-signup">
                                 Sign up with your Email

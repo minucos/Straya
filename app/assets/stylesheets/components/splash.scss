@@ -1,5 +1,7 @@
 .splash-page {
     background-color: rgb(255,255,255);
+    padding-top: 80px;
+    height: 100vw;
 }
 
 #splash-page-heading {
@@ -29,11 +31,10 @@
     text-align: center
 }
 .splash-page-btns li {
-    padding: 20px;
+    padding: 18px;
     margin: 20px 0px;
     border: 1px solid rgb(173,173,173);
-    border-radius: 5px;
-    width: 200px;
+    width: 300px;
     text-align: center;
 }
 
@@ -43,4 +44,12 @@
 
 .splash-page-btn {
     color: rgb(252,76,3);
+}
+
+#or-line {
+    margin: 10px 0px;
+    padding: 0px 18px;
+    border: none;
+    font-size: 10px;
+    text-align: center;
 }

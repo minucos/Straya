@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     resources :athletes, only: [:create]
 
-    resources :routes, only: [:create, :update, :destroy]
+    resources :routes, only: [:create, :show, :index, :update, :destroy]
 
     resource :session, only: [:create, :destroy]
 

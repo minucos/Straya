@@ -15,23 +15,31 @@ class Api::RoutesController < ApplicationController
     end 
 
     def show
-        @route = Route.find(id)
+        @route = Route.find_by(id: params[:id])
     end 
 
     def index
-
-    end 
-
-    def edit
-
+        @routes = Route.all
     end 
 
     def update
+        @route - Route.find_by(id: params[:id])
 
+        @route.update_attributes(route_params)
+
+        if @route.save 
+            render :show
+        else
+            render json: @route.errors.full_messages, status: 422 
+        end 
     end 
 
-    def destroy
+    def delete
+        @route = Route.find_by(id: params[:id])
 
+        @route.destroy
+
+        @route
     end
 
     private
