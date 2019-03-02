@@ -1,9 +1,10 @@
 import React from "react";
+import RouteMap from "./route_map";
 import { Link } from 'react-router-dom';
 
 const RouteIndexItem = (props) => (
     <div className="route-item" id={props.route.id}>
-        <img src={window.images.demo_map} alt="Map Goes Here"/>
+        <RouteMap className="route-index-map" routeId={props.route.id}/>
         <Link to={`athlete/route/${props.route.id}`} className="route-title">
             {props.route.title}
         </Link>

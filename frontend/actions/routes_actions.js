@@ -5,10 +5,11 @@ export const RECEIVE_ROUTE = "RECEIVE_ROUTE";
 export const REMOVE_ROUTE = "REMOVE_ROUTE";
 export const RECEIVE_ROUTE_ERRORS = "RECEIVE_ROUTE_ERRORS";
 
-const receiveAllRoutes = (routes) => {
+const receiveAllRoutes = ({routes, locations}) => {
     return ({
         type: RECEIVE_ALL_ROUTES,
         routes: routes,
+        locations: locations
     })
 }
 
@@ -35,7 +36,7 @@ const receiveErrors = (errors) => {
 
 export const fetchRoutes = () => dispatch => (
     routesAPIUtil.fetchRoutes()
-    .then( routes => dispatch(receiveAllRoutes(routes)),
+    .then( payload => dispatch(receiveAllRoutes(payload)),
         errors => dispatch(receiveErrors(errors.responseJSON))
     )
 )

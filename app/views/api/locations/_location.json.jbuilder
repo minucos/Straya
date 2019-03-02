@@ -1,0 +1,1 @@
+json.extract! location, :lat, :lng, :route_id, :ord
