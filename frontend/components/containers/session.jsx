@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
         let heading = "Join Straya today, it's Free.";
         let message = "Already a user?"
         let sessionText = "or sign up with your email";
-        let linkText = "Login!";
+        let linkText = "Log in!";
         let linkUrl = "/login";
         let buttonText = "Sign Up";
 

@@ -5,8 +5,11 @@ import { fetchRoutes, deleteRoute } from "../../actions/routes_actions";
 const mapStateToProps = (state) => {
     let routes = Object.values(state.entities.routes);
 
+    let locations = Object.values(state.entities.locations);
+
     return ({
         routes: routes,
+        locations: locations,
     })
 }
 

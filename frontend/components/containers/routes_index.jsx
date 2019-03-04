@@ -10,10 +10,14 @@ class RouteIndex extends React.Component {
 
     render() {
         let routes = this.props.routes.map( route => {
+
+            let locations = this.props.locations.filter( location => location.route_id === route.id)
+
             return (
                 <RouteIndexItem
                     key={route.id}
                     route={route}
+                    locations={locations}
                 />
             )
         })

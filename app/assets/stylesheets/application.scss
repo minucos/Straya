@@ -25,8 +25,14 @@
 
  @import "components/routeIndex.scss";
 
+ @import "components/mapIndex.scss";
 
- #map {
-     height: 100px;
-     width: 100px;
+  .map {
+    height: 300px;
+    width: 400px;
+ }
+
+ .map-index {
+    height: 250px;
+    width: 250px;
  }

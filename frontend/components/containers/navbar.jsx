@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom';
 import { AuthRoute } from '../../utils/route_util';
 
 const NavBar = (props) => {
+    debugger
+    let linkButton = (
+        <Link
+            id="login-btn"
+            to="/login"
+        >Log In</Link>
+    );
+
+    if (props.history.location.pathname === "/login") {
+        linkButton = (
+            <Link
+                id="login-btn"
+                to="/signup"
+            >Sign Up</Link>
+        );
+    }
+
     if (props.currentUser === undefined) {
         return (
             <div id="global-nav">
@@ -12,10 +29,7 @@ const NavBar = (props) => {
                             <Link id="global-nav-logo" to="/">STRAYA</Link>
                         </h1>
                     </div>
-                    <Link 
-                        id="login-btn" 
-                        to="/login"
-                    >Log In</Link>
+                    {linkButton}
                 </nav>
                 
             </div>
