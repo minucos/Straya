@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthRoute } from '../../utils/route_util';
 
 const NavBar = (props) => {
-    debugger
+
     let linkButton = (
         <Link
             id="login-btn"
@@ -61,26 +61,44 @@ const NavBar = (props) => {
                             </div>
                         </div>
                     </div>
-
-                    <div className="nav-dropdown profile-nav">
-                        <button className="nav-dropdown-btn profile-nav">
-                            <img 
-                                id="nav-image"
-                                src={window.images.demo_profile_pic} 
-                                alt="Profile Pic"
-                            />
-                        </button>
-                        <div className="nav-dropdown-content profile-nav">
-                            <Link to="/athlete/profile">
-                                <button className="nav-dropdown-item profile-nav">
-                                    Profile
-                                </button>
-                            </Link>
+                    <div className="right-navbar">
+                        <div className="nav-dropdown profile-nav">
                             <button 
-                                className="nav-dropdown-item profile-nav"
-                                onClick={props.logout}>
-                                Logout
+                                className="nav-dropdown-btn profile-nav"
+                                id="profile-nav">
+                                <img 
+                                    id="nav-image"
+                                    src={window.images.demo_profile_pic} 
+                                    alt="Profile Pic"
+                                />⌄
                             </button>
+                            <div className="nav-dropdown-content profile-nav">
+                                <Link to="/athlete/profile">
+                                    <button className="nav-dropdown-item profile-nav">
+                                        Profile
+                                    </button>
+                                </Link>
+                                <button 
+                                    className="nav-dropdown-item profile-nav"
+                                    onClick={props.logout}>
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="nav-dropdown plus-nav">
+                            <button 
+                                className="nav-dropdown-btn plus-nav"
+                                id="plus-logo">
+                                +
+                            </button>
+                            <div className="nav-dropdown-content plus-nav">
+                                <Link to="/routes/new">
+                                    <button className="nav-dropdown-item plus-nav">
+                                        Create a route
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </nav>

@@ -1,5 +1,5 @@
 class Route < ApplicationRecord
-    validates :title, :description, :location, :creator_id, presence: true
+    validates :title, :description, :creator_id, presence: true
 
     belongs_to :creator,
     primary_key: :id,

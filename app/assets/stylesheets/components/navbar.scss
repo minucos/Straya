@@ -20,8 +20,14 @@
     padding-left: 10%;
     display: inline-flex;
     align-items: center;
+
 }
 
+.right-navbar {
+    margin-right: 10%;
+    display: inline-flex;
+    flex-wrap: wrap-reverse;
+}
 #global-nav-logo {
     font-weight: bolder;
     color: rgb(252,76,3);
@@ -62,13 +68,12 @@
     border: none;
     height: 50px;
     margin: 0px;
-    margin-right: 100px;
     text-align: center;
 }
 
 .nav-dropdown:hover .nav-dropdown-btn {
     color: rgb(252,76,3);
-    border: 1px solid rgb(173,173,173);
+    border: 1px solid rgb(220,220,220);
     border-bottom: none;
     border-top: none;
 }
@@ -78,22 +83,34 @@
     border-radius: 50%;
 }
 
+#profile-nav {
+    font-size: 25px;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+}
+
 .nav-dropdown-content {
     display: none;
     position: absolute;
     background: rgb(255,255,255);
-    width: 100px;
+    width: 150px;
     z-index: 99;
 }
 
 .nav-dropdown:hover .nav-dropdown-content {
     display: block;
-    border: 1px solid rgb(173,173,173);
+    border: 1px solid rgb(220,220,220);
 }
 
 .nav-dropdown:hover .nav-dropdown-content.profile-nav {
     left: auto;
-    right: 100px;
+    right: 0px;
+}
+
+.nav-dropdown:hover .nav-dropdown-content.plus-nav {
+    left: auto;
+    right: 0px;
 }
 
 .nav-dropdown:hover .nav-dropdown-content.training-nav {
@@ -106,12 +123,21 @@
     border: none;
     font-size: 15px;
     height: 40px;
-    width: 100px;
-    text-align: center;
+    width: 150px;
+    text-align: left;
     text-decoration: none;
     margin-right: 0;
 }
 
 .nav-dropdown-item:hover {
     background: rgb(230,230,235);
+}
+
+#plus-logo {
+    color: #ED4D1E;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 0px 15px;
+    text-align: center;
+    line-height: 50px;
 }

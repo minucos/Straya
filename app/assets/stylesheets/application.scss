@@ -23,16 +23,7 @@
 
  @import "components/profile.scss";
 
- @import "components/routeIndex.scss";
-
  @import "components/mapIndex.scss";
 
-  .map {
-    height: 300px;
-    width: 400px;
- }
+ @import "components/routeform.scss";
 
- .map-index {
-    height: 250px;
-    width: 250px;
- }

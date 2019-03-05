@@ -7,7 +7,25 @@ class Api::RoutesController < ApplicationController
     def create
         @route = Route.new(route_params)
 
-        if @route.save
+        if @route.save  
+            location_params.each do |ord, location|
+            
+                newLocation = {
+                    lat: location["lat"],
+                    lng: location["lng"],
+                    route_id: @route.id,
+                    ord: ord,
+                }
+
+                @location = Location.new(newLocation)
+
+                if @location.save
+                    nil
+                else
+                    render json: @location.errors.full_messages, status: 422 
+                end 
+            end 
+                
             render :show
         else
             render json: @route.errors.full_messages, status: 422 
@@ -45,7 +63,11 @@ class Api::RoutesController < ApplicationController
     private
 
     def route_params
-        params.require(:route).permit(:title, :description, :location, :creator_id)
+        params.require(:route).permit(:title, :description, :creator_id)
     end
+
+    def location_params
+        params.require(:locations)
+    end 
 
 end

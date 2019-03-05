@@ -13,10 +13,11 @@ const receiveAllRoutes = ({routes, locations}) => {
     })
 }
 
-const receiveRoute = (routeId) => {
+const receiveRoute = ({route, locations}) => {
     return ({
         type: RECEIVE_ROUTE,
-        routeId: routeId,
+        route: route,
+        locations: locations,
     })
 }
 
@@ -43,14 +44,14 @@ export const fetchRoutes = () => dispatch => (
 
 export const fetchRoute = (id) => dispatch => (
     routesAPIUtil.fetchRoute(id)
-        .then( route => dispatch(receiveRoute(route.id)),
+        .then( route => dispatch(receiveRoute(route)),
             errors => dispatch(receiveErrors(errors.responseJSON))
     )
 )
 
-export const createRoute = (route) => dispatch => (
-    routesAPIUtil.createRoute(route)
-        .then(route => dispatch(receiveRoute(route)),
+export const createRoute = (route, locations) => dispatch => (
+    routesAPIUtil.createRoute(route, locations)
+        .then(payload => dispatch(receiveRoute(payload)),
             errors => dispatch(receiveErrors(errors.responseJSON))
     )
 )

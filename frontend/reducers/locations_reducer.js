@@ -13,17 +13,10 @@ const LocationsReducer = (oldState = {}, action) => {
         case RECEIVE_ALL_ROUTES:
             return action.locations;
 
-        // case RECEIVE_ROUTE:
-        //     newState = Object.assign({}, oldState, { [action.route.id]: action.route });
+        case RECEIVE_ROUTE:
+            newState = Object.assign({}, oldState, action.locations );
 
-        //     return newState;
-
-        // case REMOVE_ROUTE:
-        //     newState = Object.assign({}, oldState);
-
-        //     delete newState[action.routeId];
-
-        //     return newState;
+            return newState;
 
         default:
             return oldState;

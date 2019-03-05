@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import RoutesForm from "./routes_form";
 import { createRoute } from "../../actions/routes_actions";
+import { createLocation } from "../../actions/locations_actions";
 
 const mapStateToProps = (state, ownProps) => {
     let athleteId = state.session.id;
@@ -11,13 +12,15 @@ const mapStateToProps = (state, ownProps) => {
             description: "", 
             location: "",
             creatorId: athleteId,
+            locations: new Array(),
         },
     })
 };
 
 const mapDispatchtoProps = (dispatch) => {
     return ({
-        action: (route) => dispatch(createRoute(route)),
+        action: (route, locations) => dispatch(createRoute(route, locations)),
+        createLocation: (location) => dispatch(createLocation(location)),
     })
 };
 

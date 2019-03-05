@@ -16,9 +16,9 @@ Athlete.destroy_all
 demouser = Athlete.create(email: "test", fname: "Tobias", lname: "Dundridge", password: "password")
 
 # Routes
-route1 = Route.create(title: "My first route", description: "home to astro's", location: "New York, NY", creator_id: demouser.id)
-route2 = Route.create(title: "My second route", description: "walk to silver towers", location: "New York, NY", creator_id: demouser.id)
-route3 = Route.create(title: "My third route", description: "up to central park", location: "New York, NY", creator_id: demouser.id)
+route1 = Route.create(title: "My first route", description: "home to astro's", creator_id: demouser.id)
+route2 = Route.create(title: "My second route", description: "walk to silver towers", creator_id: demouser.id)
+route3 = Route.create(title: "My third route", description: "up to central park", creator_id: demouser.id)
 
 # Locations
 #route 1

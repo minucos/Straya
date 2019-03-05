@@ -12,11 +12,11 @@ export const fetchRoute = (id) => (
     })
 );
 
-export const createRoute = (route) => (
+export const createRoute = (route, locations) => (
     $.ajax({
         method: "POST",
         url: "api/routes",
-        data: { route },
+        data: { route, locations },
     })
 );
 

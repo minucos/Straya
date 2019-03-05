@@ -1,0 +1,65 @@
+.route-builder {
+    height: 100vh;
+    width: 100vw;
+    padding-top: 50px;
+}
+
+#route-form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar, .route {
+    padding-left: 5px;
+}
+
+.route-form-heading {
+    padding: 0px 20px;
+    font-size: 20px;
+}
+
+#route-exit {
+    margin: 10px 10px;
+}
+
+#route-inputs {
+    justify-content: space-between;
+}
+
+.route-input {
+    height: 40px;
+    margin: 5px 10px;
+    font-size: 15px;
+}
+#route-title {
+    width: 250px;
+}
+
+#route-description {
+    width: 450px;
+}
+
+#submit-route-btn {
+    flex: right;
+    margin: 0px 20px;
+    padding: 0px;
+    background: rgb(252,76,3);
+    color: rgb(250,250,250);
+    border: 1px solid rgb(252,76,3);
+    border-radius: 5px;
+    width: 70px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+#new-map {
+align-self: center;
+height: 80vh;
+}
