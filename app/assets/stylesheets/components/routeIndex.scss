@@ -43,6 +43,16 @@
     border-top: 1px solid #CCCCD0;
 }
 
+.route-index-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#route-builder-img {
+    padding-top: 40px;
+    padding-right: 20px;
+}
+
 .route-heading {
     font-size: 35px;
     margin: 0px;
@@ -52,8 +62,8 @@
 
 .route-item {
     padding-bottom: 30px;
-    padding-right: 30px;
-
+    padding-right: 1%;
+    width: 24%;
 }
 
 .route-stats {
@@ -63,7 +73,7 @@
 
  .map-index {
     height: 165px;
-    width: 270px;
+    width: 100%;
  }
 
  .route-title {

@@ -24,9 +24,11 @@
 }
 
 .right-navbar {
-    margin-right: 10%;
+    margin-right: 5%;
     display: inline-flex;
-    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    justify-content: center;
+
 }
 #global-nav-logo {
     font-weight: bolder;
@@ -67,7 +69,6 @@
     font-size: 15px;
     border: none;
     height: 50px;
-    margin: 0px;
     text-align: center;
 }
 
@@ -85,7 +86,7 @@
 
 #profile-nav {
     font-size: 25px;
-    align-items: center;
+    padding-top: 8px;
     text-align: center;
     line-height: 50px;
 }
