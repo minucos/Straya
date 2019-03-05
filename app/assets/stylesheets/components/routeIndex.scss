@@ -14,7 +14,6 @@
 
 .new-route-btn {
     background: rgb(252,76,3);
-    
 }
 
 .new-route-btn {
@@ -38,7 +37,6 @@
 .route-list {
     display: flex;
     flex-flow: wrap;
-    justify-content: left;
     margin: 20px, 0px;
     padding: 0px;
     padding-top: 30px;
@@ -53,8 +51,9 @@
 }
 
 .route-item {
-    margin-right: 10px;
     padding-bottom: 30px;
+    padding-right: 30px;
+
 }
 
 .route-stats {
@@ -86,14 +85,14 @@
 
  .route-distance {
     padding-left: 20px;
+    margin-left: 0px;
     list-style: none;
-    padding-left: 0;
     font-size: 12px;
     color: #99999E;
  }
 
  .route-distance-length {
-    padding-left: 20px;
+    margin-left: 0px;
     font-size: 23px;
     color: #2C2D31;
  }
