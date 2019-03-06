@@ -4,8 +4,6 @@ json.routes do
       json.partial! "route", route: route
 
     end
-
-    
   end
 end
 

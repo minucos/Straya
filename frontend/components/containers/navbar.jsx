@@ -53,7 +53,7 @@ const NavBar = (props) => {
                                         My Routes
                                     </button>
                                 </Link>
-                                <Link to="/athlete/workouts">
+                                <Link to="/athlete/training">
                                     <button className="nav-dropdown-item training-nav">
                                         My Workouts
                                     </button>
@@ -96,6 +96,11 @@ const NavBar = (props) => {
                                 <Link to="/routes/new">
                                     <button className="nav-dropdown-item plus-nav">
                                         Create a route
+                                    </button>
+                                </Link>
+                                <Link to="/athlete/upload">
+                                    <button className="nav-dropdown-item plus-nav">
+                                        Add a workout
                                     </button>
                                 </Link>
                             </div>

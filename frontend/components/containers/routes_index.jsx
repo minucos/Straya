@@ -6,7 +6,7 @@ class RouteIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchRoutes();
-    }
+    };
 
     render() {
         let routes = this.props.routes.map( route => {
@@ -48,7 +48,7 @@ class RouteIndex extends React.Component {
                 </div>
             </div>
         )
-    }
-}
+    };
+};
 
 export default RouteIndex;

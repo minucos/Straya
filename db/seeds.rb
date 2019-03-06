@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.transaction do
+
 Location.destroy_all
+Workout.destroy_all
 Route.destroy_all
 Athlete.destroy_all
-
 
 # Athletes
 demouser = Athlete.create(email: "test", fname: "Tobias", lname: "Dundridge", password: "password")
@@ -32,4 +33,14 @@ r3loc1 = Location.create(lat: 40.759129, lng: -73.995859, route_id: route3.id, o
 r3loc2 = Location.create(lat: 40.769781, lng: -73.988073, route_id: route3.id, ord: 2 )
 r3loc3 = Location.create(lat: 40.767408, lng: -73.982420, route_id: route3.id, ord: 3 )
 r3loc4 = Location.create(lat: 40.768187, lng: -73.981368, route_id: route3.id, ord: 4 )
+
+# Workouts
+workout1 = Workout.create(title: "My first workout", body: "gotta work on that summer bod", workout_type: "run", duration: 1800, distance: 5000, athlete_id: demouser.id)
+workout2 = Workout.create(title: "My second workout", body: "morning walk before work", workout_type: "run", duration: 300, distance: 500, athlete_id: demouser.id)
+workout3 = Workout.create(title: "My third workout", body: "summer bod isn't coming so easy", workout_type: "run", duration: 1734, distance: 5000, athlete_id: demouser.id)
+workout4 = Workout.create(title: "My fourth workout", body: "quick trip to the park to see my mates", workout_type: "run", duration: 400, distance: 700, athlete_id: demouser.id)
+workout5 = Workout.create(title: "My fifth workout", body: "nice night for it", workout_type: "run", duration: 1800, distance: 5000, athlete_id: demouser.id)
+workout6 = Workout.create(title: "My sixth workout", body: "winter bods aren't THAT bad, you know", workout_type: "run", duration: 2003, distance: 5000, athlete_id: demouser.id)
+
+
 end

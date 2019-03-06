@@ -26,14 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //TESTING
         window.store = store;
-        window.login = login;
-        window.logout = logout; 
-        window.signup = signup;
-        window.routesAPIUtil = routesAPIUtil;
-        window.fetchRoute = fetchRoute;
-        window.createRoute = createRoute;
 
     // end of TESTING
+
+    delete window.currentUser
 
     ReactDOM.render(<Root store={store} />, root)
 })

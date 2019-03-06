@@ -1,4 +1,6 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_CURRENT_USER,
+         LOGOUT_CURRENT_USER,
+} from "../actions/session_actions";
 
 const AthletesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -10,6 +12,7 @@ const AthletesReducer = (oldState = {}, action) => {
             newState = Object.assign({}, oldState, { [action.athlete.id]: action.athlete });
 
             return newState;
+            
         default:
             return oldState;
     }

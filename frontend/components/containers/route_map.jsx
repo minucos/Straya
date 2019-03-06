@@ -43,8 +43,6 @@ class RouteMap extends React.Component {
     };
     
     componentDidMount() {
-        // console.log(this.length);
-        // debugger
         this.map = new google.maps.Map(document.getElementById(`map-${this.props.route.id}`), this.mapOptions);
 
         let directionsService = new google.maps.DirectionsService();
@@ -54,7 +52,7 @@ class RouteMap extends React.Component {
             console.log(status)
             if (status == 'OK') {
                 directionsDisplay.setDirections(result);
-                // debugger
+
                 result.routes[0].legs.forEach(leg => {
                     let distance = this.state.distance;
                     let duration = this.state.duration;
@@ -78,11 +76,11 @@ class RouteMap extends React.Component {
                         "July", "August", "September", "October", "November", "December"
                         ];
 
-        let day = dateString.getDate();
-        let month = months[dateString.getMonth() - 1];
+        let date = dateString.getDate();
+        let month = months[dateString.getMonth() + 1];
         let year = dateString.getFullYear();
 
-        return `${day} ${month}, ${year}`;
+        return `${date} ${month}, ${year}`;
     }
 
 
@@ -103,7 +101,7 @@ class RouteMap extends React.Component {
                     <ul className="route-distance">
                         <li 
                             className="route-distance-length"
-                            id={`${this.props.route.id}-distance`}>{this.state.distance/1000.00}km</li>
+                            id={`${this.props.route.id}-distance`}>{((this.state.distance/1000.00).toFixed(2))}km</li>
                         <li>Distance</li>
                     </ul>
                     <ul className="route-time" id={`${this.props.route.id}-duration`}>

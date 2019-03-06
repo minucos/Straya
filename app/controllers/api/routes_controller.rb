@@ -33,15 +33,15 @@ class Api::RoutesController < ApplicationController
     end 
 
     def show
-        @route = Route.find_by(id: params[:id])
+        @route = current_user.routes.find_by(id: params[:id])
     end 
 
     def index
-        @routes = Route.all
+        @routes = current_user.routes
     end 
 
     def update
-        @route - Route.find_by(id: params[:id])
+        @route = current_user.routes.find_by(id: params[:id])
 
         @route.update_attributes(route_params)
 
@@ -53,7 +53,7 @@ class Api::RoutesController < ApplicationController
     end 
 
     def delete
-        @route = Route.find_by(id: params[:id])
+        @route = current_user.routes.find_by(id: params[:id])
 
         @route.destroy
 

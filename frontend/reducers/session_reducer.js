@@ -12,10 +12,10 @@ const SessionReducer = (oldState = {id: null}, action) => {
             newState = Object.assign({}, oldState, { id: action.athlete.id } );
 
             return newState;
-        case LOGOUT_CURRENT_USER:
-            newState = Object.assign({}, oldState, { id: null });
             
-            return newState;
+        case LOGOUT_CURRENT_USER:
+            return { id: null };
+
         default:
             return oldState;
     }

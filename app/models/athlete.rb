@@ -12,6 +12,8 @@ class Athlete < ApplicationRecord
     foreign_key: :creator_id,
     class_name: "Route"
 
+    has_many :workouts
+
     def self.find_by_credentials(email, password)
         athlete = Athlete.find_by(email: email)
         
