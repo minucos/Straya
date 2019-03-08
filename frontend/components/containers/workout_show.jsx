@@ -28,11 +28,12 @@ class WorkoutShow extends React.Component {
     }
 
     remove() {
-        this.props.deleteWorkout(this.props.workout.id);
+        this.props.deleteWorkout(this.props.workout.id)
+            .then(() => this.props.history.push("/athlete/training"));
     };
 
     avgSpeed(duration, distance) {
-        let avgSecondsPerKm = Math.floor(duration / (distance / 1000));
+        let avgSecondsPerKm = Math.floor(duration / distance);
         let avgMins = Math.floor(avgSecondsPerKm/60);
         let avgSecs = avgSecondsPerKm % 60;
 
@@ -95,7 +96,7 @@ class WorkoutShow extends React.Component {
                                 <div className="workout-stats">
                                     <div id="workout-distance">
                                         <div className="workout-stat">
-                                            {((workout.distance / 1000.00).toFixed(2))}km
+                                            {(workout.distance).toFixed(2)}km
                                         </div>
                                         <div className="show-label">Distance</div>
                                     </div>

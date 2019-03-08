@@ -17,22 +17,22 @@ Athlete.destroy_all
 demouser = Athlete.create(email: "test", fname: "Tobias", lname: "Dundridge", password: "password")
 
 #Workouts
-workout1 = Workout.create(title: "My first workout", body: "gotta work on that summer bod", workout_type: "run", duration: 1800, distance: 5000, athlete_id: demouser.id)
-workout2 = Workout.create(title: "My second workout", body: "morning walk before work", workout_type: "run", duration: 300, distance: 500, athlete_id: demouser.id)
-workout3 = Workout.create(title: "My third workout", body: "summer bod isn't coming so easy", workout_type: "run", duration: 1734, distance: 5000, athlete_id: demouser.id)
-workout4 = Workout.create(title: "My fourth workout", body: "quick trip to the park to see my mates", workout_type: "run", duration: 400, distance: 700, athlete_id: demouser.id)
+workout1 = Workout.create(title: "My first workout", body: "gotta work on that summer bod", workout_type: "run", duration: 1800, distance: 5, athlete_id: demouser.id)
+workout2 = Workout.create(title: "My second workout", body: "morning walk before work", workout_type: "run", duration: 300, distance: 0.5, athlete_id: demouser.id)
+workout3 = Workout.create(title: "My third workout", body: "summer bod isn't coming so easy", workout_type: "run", duration: 1734, distance: 5, athlete_id: demouser.id)
+workout4 = Workout.create(title: "My fourth workout", body: "quick trip to the park to see my mates", workout_type: "run", duration: 400, distance: 0.7, athlete_id: demouser.id)
 
 #Route
 route1 = Route.create(title: "My first route", description: "home to astro's", creator_id: demouser.id)
 
 #Workout
-workout5 = Workout.create(title: "My fifth workout", body: "nice night for it", workout_type: "run", duration: 1800, distance: 5000, athlete_id: demouser.id)
+workout5 = Workout.create(title: "My fifth workout", body: "nice night for it", workout_type: "run", duration: 1800, distance: 5, athlete_id: demouser.id)
 
 #Route
 route2 = Route.create(title: "My second route", description: "walk to silver towers", creator_id: demouser.id)
 
 #Workout
-workout6 = Workout.create(title: "My sixth workout", body: "winter bods aren't THAT bad, you know", workout_type: "run", duration: 2003, distance: 5000, athlete_id: demouser.id)
+workout6 = Workout.create(title: "My sixth workout", body: "winter bods aren't THAT bad, you know", workout_type: "run", duration: 2003, distance: 5, athlete_id: demouser.id)
 
 #Workout
 route3 = Route.create(title: "My third route", description: "up to central park", creator_id: demouser.id)

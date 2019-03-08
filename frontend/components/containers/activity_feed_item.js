@@ -87,7 +87,7 @@ class ActivityFeedItem extends React.Component {
                     <div className="feed-workout-info-dist">
                         <div className="feed-label">Distance</div>
                         <div className="feed-stat">
-                            {((this.props.activity.distance / 1000.00).toFixed(2))}km
+                            {(this.props.activity.distance).toFixed(2)}km
                                 </div>
                     </div>
                     <div className="feed-workout-info-time">

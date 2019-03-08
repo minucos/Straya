@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        createWorkout: (workout) => dispatch(createWorkout(workout)),
+        action: (workout) => dispatch(createWorkout(workout)),
     })
 };
 

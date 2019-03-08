@@ -45,7 +45,7 @@ class WorkoutIndexItem extends React.Component {
                     {`${this.formatTime(this.props.workout.duration)}`}
                 </td>
                 <td className="workout-col col-distance" data-field-name="distance">
-                    {`${(this.props.workout.distance)/1000} km`}    
+                    {`${(this.props.workout.distance).toFixed(2)} km`}    
                 </td>
                 <td className="workout-col col-action" data-field-name="action">
                     <Link to={`/workouts/${this.props.workout.id}/edit`}>

@@ -5,17 +5,20 @@ class WorkoutsForm extends React.Component {
     constructor(props) {
         super(props);
 
+        // this.state = this.props.workout;
         this.state = this.props.workout;
 
-        // this.hours = 0;
-        // this.minutes = 0;
-        // this.seconds = 0;
+        this.hours = 0;
+        this.minutes = 0;
+        this.seconds = 0;
 
         this.submitWorkout = this.submitWorkout.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchWorkout(this.props.workoutId);
+        if (this.props.buttonText === "Save") {
+            this.props.fetchWorkout(this.props.workoutId)
+        }
     }
 
     update(field) {
@@ -28,7 +31,12 @@ class WorkoutsForm extends React.Component {
 
     updateTime(field) {
         return (e) => {
-            this[field] = e.target.value
+            this[field] = e.target.value;
+            
+            this.setState({
+                duration: this.calcDuration(this.hours, this.minutes, this.seconds),
+            })
+
         }
     };
 
@@ -39,13 +47,10 @@ class WorkoutsForm extends React.Component {
     submitWorkout(e) {
         e.preventDefault();
 
-        let newDistance = this.state.distance * 1000;
-
         this.setState({
-            distance: newDistance,
             duration: this.calcDuration(this.hours, this.minutes, this.seconds)
         }, () => 
-            this.props.createWorkout(this.state)
+            this.props.action(this.state)
             .then(() => this.props.history.push("/athlete/training"))
         );
     };
@@ -54,10 +59,6 @@ class WorkoutsForm extends React.Component {
         if (this.props.workout === undefined) {
             return null;
         }
-
-        this.hours = Math.floor(this.props.workout.duration / 3600);
-        this.minutes = Math.floor((this.props.workout.duration - (this.hours * 3600)) / 60);
-        this.seconds = this.props.workout.duration % 60;
 
         return (
             <div className="create-workout-page">
@@ -73,7 +74,7 @@ class WorkoutsForm extends React.Component {
                                     id="distance-input"
                                     type="number"
                                     step="0.01" 
-                                    value={this.props.workout.distance/1000}
+                                    value={this.state.distance}
                                     onChange={this.update("distance")}    
                                 />
                             </div>
@@ -84,7 +85,7 @@ class WorkoutsForm extends React.Component {
                                         id="time-input-hours"
                                         className="time-input"
                                         type="number" 
-                                        value={this.hours}
+                                        value={Math.floor(this.state.duration / 3600)}
                                         onChange={this.updateTime("hours")}
                                     />
                                     <div className="time-label">hr</div>
@@ -92,7 +93,7 @@ class WorkoutsForm extends React.Component {
                                         id="time-input-minutes"
                                         className="time-input"
                                         type="number"
-                                        value={this.minutes}
+                                        value={Math.floor((this.state.duration % 3600) / 60)}
                                         onChange={this.updateTime("minutes")} 
                                     />
                                     <div className="time-label">min</div>
@@ -100,7 +101,7 @@ class WorkoutsForm extends React.Component {
                                         id="time-input-seconds"
                                         className="time-input"
                                         type="number"
-                                        value={this.seconds}
+                                        value={this.state.duration % 60}
                                         onChange={this.updateTime("seconds")} 
                                     />
                                     <div className="time-label">s</div>
@@ -119,15 +120,15 @@ class WorkoutsForm extends React.Component {
                             <input 
                                 className="workout-title"
                                 type="text"
-                                value={this.props.workout.title}
+                                value={this.state.title}
                                 onChange={this.update("title")}
                             />
                         <label id="description-label">Description</label>
                             <textarea
                                 className="workout-description"
                                 type="text"
-                                value={this.props.workout.body}
-                                onChange={this.update("description")}
+                                value={this.state.body}
+                                onChange={this.update("body")}
                             >
                             </textarea>
                         <div className="workout-form-buttons">

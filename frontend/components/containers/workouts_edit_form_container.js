@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return ({
         fetchWorkout: (workoutId) => dispatch(fetchWorkout(workoutId)),
-        updateWorkout: (workout) => dispatch(updateWorkout(workout)),
+        action: (workout) => dispatch(updateWorkout(workout)),
     })
 };
 
