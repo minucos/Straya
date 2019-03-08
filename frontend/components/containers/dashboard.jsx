@@ -25,17 +25,17 @@ class Dashboard extends React.Component {
         if (this.props.workouts === undefined) {
             return null;
         }
-        
+
         let lastActivity = "No recent activities";
         let workouts = Object.values(this.props.workouts);
         let last = workouts.length - 1;
 
 
         if (workouts.length > 0) {
-            let title = this.props.workouts[last].title;
-            let type = this.props.workouts[last].workout_type;
+            let title = workouts[last].title;
+            let type = workouts[last].workout_type;
             let symbol = "👟";
-            let date = this.formatDate(new Date(this.props.workouts[last].created_at));
+            let date = this.formatDate(new Date(workouts[last].created_at));
             
             if (type === 'ride') {
                 symbol = "🚲";
