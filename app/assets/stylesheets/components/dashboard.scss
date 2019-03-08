@@ -1,8 +1,9 @@
 .dashboard {
     padding-top: 50px;
     background: #F5F5FA;
-    height: 100vh;
+    height: auto;
     width: 100vw;
+    display: flex;
 }
 
 #profile {
@@ -46,7 +47,6 @@
     margin: 0px;
     padding: 0px;
 }
-
 
 #profile-container > li {
     font-size: 13px;

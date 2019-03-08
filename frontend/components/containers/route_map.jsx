@@ -77,7 +77,7 @@ class RouteMap extends React.Component {
                         ];
 
         let date = dateString.getDate();
-        let month = months[dateString.getMonth() + 1];
+        let month = months[dateString.getMonth()];
         let year = dateString.getFullYear();
 
         return `${date} ${month}, ${year}`;
@@ -85,7 +85,40 @@ class RouteMap extends React.Component {
 
 
     render() {
-    
+        if (this.props.mapType === "feed") {
+            return (
+                <div className="feed-route">
+                    <div className="feed-profile-line">
+                        <img className="feed-profile-pic" src={window.images.demo_profile_pic} alt="Profile Pic" />
+                        <div className="feed-header-info">
+                            <Link to={`/routes/${this.props.route.id}`} className="feed-title">
+                                {this.props.route.title}
+                            </Link>
+                            <div className="feed-date">
+                                Created on {this.formatDate(new Date(this.props.route.created_at))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="feed-item-info">
+                        <div className="feed-route-info-dist">
+                            <div className="feed-label">Distance</div>
+                            <div className="feed-stat">
+                                {((this.state.distance / 1000.00).toFixed(2))}km
+                            </div>
+                        </div>
+                        <div className="feed-route-info-time">
+                            <div className="feed-label">Est. Moving Time</div>
+                            <div className="feed-stat">
+                                {Math.floor(this.state.duration / 60)}:{this.state.duration % 60}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="feed-map" id={`map-${this.props.route.id}`}>
+                        MAP GOES HERE
+                    </div>
+                </div>
+            );
+        }
         return (
             <div className={this.props.className}>
                 <div className={`map-${this.props.mapType}`} id={`map-${this.props.route.id}`}>

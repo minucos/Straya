@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { publicDecrypt } from "crypto";
+import AcitvityFeedItem from "./activity_feed_item";
 
 class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.fetchWorkouts();
+        this.props.fetchRoutes();
     };
 
     formatDate(dateString) {
@@ -20,11 +21,40 @@ class Dashboard extends React.Component {
         return `${month} ${date}, ${year}`;
     }
 
+    buildFeed() {
+        let feed = Object.values(this.props.workouts).concat(Object.values(this.props.routes));
+
+        return feed.sort((a, b) => {
+            let date1 = a.created_at;
+            let date2 = b.created_at;
+
+            if (date1 > date2) {
+                return -1;
+            }
+            if (date1 < date2) {
+                return 1;
+            }
+            return 0;
+        })
+    }
+
     render() {
 
-        if (this.props.workouts === undefined) {
+        if (Object.values(this.props.workouts).length < 1 || 
+            Object.values(this.props.routes).length < 1 || 
+            Object.values(this.props.locations).length < 1) {
             return null;
         }
+
+        let activityFeed = this.buildFeed().map( activity => {
+            return (
+                <AcitvityFeedItem
+                    key={`${activity.title}-${activity.id}`}
+                    activity={activity}
+                    locations={this.props.locations}
+                />
+            )
+        })
 
         let lastActivity = "No recent activities";
         let workouts = Object.values(this.props.workouts);
@@ -73,6 +103,9 @@ class Dashboard extends React.Component {
                         </p>
                     </div>
                 </div>
+                <ul className="activity-feed">
+                    {activityFeed}
+                </ul>
             </div>
         )
     }

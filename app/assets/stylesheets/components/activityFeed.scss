@@ -1,0 +1,115 @@
+
+.activity-feed {
+    width: 40%;
+    height: auto;
+    margin-left: 30px;
+    margin-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.feed-route {
+    height: 300px;
+    width: 100%;
+    background: #FFFFFF;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.feed-profile-line {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.feed-profile-pic {
+    width: 50px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.feed-header-info {
+    padding-left: 20px;
+}
+
+.feed-date {
+    font-size: 12px;
+}
+
+.feed-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1380B4;
+}
+
+.feed-title:hover {
+    text-decoration: underline;
+}
+
+.feed-item-info {
+    display: flex;
+    height: 60px;
+}
+
+.feed-route-info-dist {
+    padding-left: 70px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    border-right: 1px solid #E6E6EB;
+}
+
+.feed-route-info-time {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.feed-label {
+    font-size: 13px;
+}
+
+.feed-stat {
+    font-size: 20px;
+}
+
+.feed-map {
+    height: 180px;
+}
+
+.feed-workout {
+    height: 150px;
+    width: 100%;
+    background: #FFFFFF;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.feed-workout-profile-line {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.feed-workout-desc {
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.feed-workout-info-dist {
+    padding-left: 70px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    border-right: 1px solid #E6E6EB;
+}
+
+.feed-workout-info-time {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    border-right: 1px solid #E6E6EB;
+}
+
+.feed-workout-info-pace {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
