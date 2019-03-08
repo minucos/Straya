@@ -21,6 +21,11 @@ class Dashboard extends React.Component {
     }
 
     render() {
+
+        if (this.props.workouts === undefined) {
+            return null;
+        }
+        
         let lastActivity = "No recent activities";
         let workouts = Object.values(this.props.workouts);
         let last = workouts.length - 1;
