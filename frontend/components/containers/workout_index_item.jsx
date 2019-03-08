@@ -12,6 +12,21 @@ class WorkoutIndexItem extends React.Component {
 
         return `${day}, ${month}/${date}/${year}`;
     }
+
+    formatTime(duration) {
+        let hrs = Math.floor(duration / 3600);
+        duration = duration % 3600;
+        let mins = Math.floor(duration / 60);
+        duration = duration % 60;
+        let secs = duration;
+
+        return `${hrs}:${mins}:${secs}`;
+    }
+
+    remove() {
+        this.props.deleteWorkout(this.props.workout.id);
+    };
+
     render() {
         return (
             <tr id={`${this.props.workout.id}`} className="workout-activity-row">
@@ -22,19 +37,21 @@ class WorkoutIndexItem extends React.Component {
                     {this.formatDate(new Date(this.props.workout.created_at))}
                 </td>
                 <td className="workout-col col-title" data-field-name="title">
-                    {`${this.props.workout.title}`}
-                </td>
-                <td className="workout-col col-distance" data-field-name="distance">
-                    {`${this.props.workout.distance}`}    
+                    <Link className="workout-title-link" to={`/workouts/${this.props.workout.id}`}>
+                        {`${this.props.workout.title}`}
+                    </Link>
                 </td>
                 <td className="workout-col col-duration" data-field-name="duration">
-                    {`${this.props.workout.duration}`}
+                    {`${this.formatTime(this.props.workout.duration)}`}
+                </td>
+                <td className="workout-col col-distance" data-field-name="distance">
+                    {`${(this.props.workout.distance)/1000} km`}    
                 </td>
                 <td className="workout-col col-action" data-field-name="action">
                     <button className="workout-table-button">
                         Edit
                     </button>
-                    <button className="workout-table-button">
+                    <button className="workout-table-button" onClick={this.remove.bind(this)}>
                         Delete
                     </button>
                 </td>

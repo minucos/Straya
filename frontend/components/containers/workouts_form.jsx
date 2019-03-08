@@ -6,6 +6,12 @@ class WorkoutsForm extends React.Component {
         super(props);
 
         this.state = this.props.workout;
+
+        this.hours = 0;
+        this.minutes = 0;
+        this.seconds = 0;
+
+        this.submitWorkout = this.submitWorkout.bind(this);
     }
 
     update(field) {
@@ -16,28 +22,28 @@ class WorkoutsForm extends React.Component {
         };
     };
 
-    updateDuration(input) {
+    updateTime(field) {
         return (e) => {
-            let newDuration;
+            this[field] = e.target.value
+        }
+    };
 
-            switch (input) {
-                case "hours":
-                    newDuration = this.state.duration + (e.target.value * 3600);
+    calcDuration(hours, minutes, seconds) {
+        return (hours * 3600) + (minutes * 60) + seconds;
+    };
 
-                    break;
-                case "minutes":
-                    newDuration = this.state.duration + (e.target.value * 60);
+    submitWorkout(e) {
+        e.preventDefault();
 
-                    break;
-                default:
-                    newDuration = this.state.duration + e.target.value
-                    break;
-            };
-        
-            this.setState({
-                duration: newDuration
-            })
-        };
+        let newDistance = this.state.distance * 1000;
+
+        this.setState({
+            distance: newDistance,
+            duration: this.calcDuration(this.hours, this.minutes, this.seconds)
+        }, () => 
+            this.props.createWorkout(this.state)
+            .then(() => this.props.history.push("/athlete/training"))
+        );
     };
 
     render() {
@@ -47,7 +53,7 @@ class WorkoutsForm extends React.Component {
                     <h1 className="create-workout-header">Enter Workout Details</h1>
                     <form 
                         className="create-workout-form"
-                        onSubmit={this.saveWorkout}>
+                        onSubmit={this.submitWorkout}>
                         <div className="distance-duration">
                             <div className="distance">
                                 <label className="dist-label">Distance (in km)</label>
@@ -55,7 +61,7 @@ class WorkoutsForm extends React.Component {
                                     id="distance-input"
                                     type="number"
                                     step="0.01" 
-                                    value={this.state.distance} 
+
                                     onChange={this.update("distance")}    
                                 />
                             </div>
@@ -63,33 +69,37 @@ class WorkoutsForm extends React.Component {
                                 <label className="dur-label">Duration</label>
                                 <div className="dur-inputs">
                                     <input 
+                                        id="time-input-hours"
                                         className="time-input"
                                         type="number" 
-                                        value={Math.floor(this.state.duration/3600)} 
-                                        onChange={this.updateDuration("hours")}    
+                                        placeholder="HH"
+                                        onChange={this.updateTime("hours")}
                                     />
                                     <input 
+                                        id="time-input-minutes"
                                         className="time-input"
                                         type="number"
-                                        value={Math.floor(this.state.duration / 60)}
-                                        onChange={this.updateDuration("minutes")}   
+                                        placeholder="MM"
+                                        onChange={this.updateTime("minutes")} 
                                     />
                                     <input 
+                                        id="time-input-seconds"
                                         className="time-input"
                                         type="number"
-                                        value={this.state.duration % 60}
-                                        onChange={this.updateDuration("seconds")}    
+                                        placeholder="SS"
+                                        onChange={this.updateTime("seconds")} 
                                     />
                                 </div>
                             </div>
                         </div>
                         <label id="type-label">Sport</label>
-                            <input 
+                            <select 
                                 className="workout-type"
-                                type="dropdown"
-                                value={this.state.title}
-                                onChange={this.update("title")}
-                            />
+                                defaultValue="run"
+                                onChange={this.update("workout_type")}>
+                                <option value="run">run</option>
+                                <option value="ride">ride</option>
+                            </select>
                         <label id="title-label">Title</label>
                             <input 
                                 className="workout-title"

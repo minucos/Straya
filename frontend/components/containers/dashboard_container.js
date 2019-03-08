@@ -1,11 +1,18 @@
 import { connect } from 'react-redux';
 import Dashboard from "./dashboard";
-import { logout } from "../../actions/session_actions";
+import { fetchWorkouts } from "../../actions/workouts_actions";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return ({
         athlete: state.entities.athletes[state.session.id],
+        workouts: state.entities.workouts,
     })
 };
 
-export default connect(mapStateToProps,null)(Dashboard);
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        fetchWorkouts: () => dispatch(fetchWorkouts()),
+    })
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

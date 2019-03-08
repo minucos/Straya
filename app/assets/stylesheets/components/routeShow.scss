@@ -1,0 +1,67 @@
+.route-show {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 70px;
+    width: 80%;
+}
+.route-index-link {
+    font-size: 13px;
+}
+
+#link-to-index {
+    color: #606065;
+}
+
+#link-to-index:hover {
+    text-decoration: underline;
+}
+
+.route-show .route-show-heading {
+    visibility: visible;
+}
+
+.route-show .profile-heading {
+    visibility: inherit;
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.route-show #profile-pic-heading {
+    visibility: inherit;
+    position: relative;
+    margin-left: 20px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.route-show .profile-name-heading {
+    visibility: inherit;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.route-show-map {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+ .map-show {
+    height: 500px;
+    width: 60%;
+ }
+
+ .route-show .route-title {
+    visibility: hidden;
+    position: absolute;
+ }
+
+
+ .route-show .route-stats {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    background: #F7F7F7;
+    height: 500px;
+}

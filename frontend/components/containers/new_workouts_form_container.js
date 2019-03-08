@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
         workout: {
             title: "",
             body: "",
-            workout_type: "",
+            workout_type: "run",
             distance: 0,
             duration: 0,
             athlete_id: athleteId,

@@ -83,6 +83,15 @@
     color: #3C80B3;
  }
 
+ .route-show-heading {
+    visibility: hidden;
+}
+
+#profile-pic-heading {
+    visibility: hidden;
+    position: absolute;
+}
+
  .route-title:hover {
      text-decoration: underline;
  }

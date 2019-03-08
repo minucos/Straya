@@ -13,34 +13,137 @@
 }
 
 .workout-searchbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
-    height: 150px;
-    border: 1px solid #E6E6EB;
+    height: 80px;
+    border: 1px solid #CCCCD0;
     border-radius: 5px;
     margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.workout-searchbox label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.search-keywords {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+#keyword-input {
+    margin-top: 5px;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid #CCCCD0;
+    border-radius: 5px
+}
+
+#search-btn {
+    height: 40px;
+    border: 1px solid #CCCCD0;
+    border-radius: 5px;
+    width: 10%;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.search-type {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+#search-type-box {
+    margin-top: 5px;
+    height: 40px;
+    width: 100%;
+    background: #FFFFFF;
 }
 
 .activity-count {
-    
+    font-weight: 400;
 }
 
-table {
+.workout-table {
     display: table;
     border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.table-titles {
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    background: #E6E6EB;
+    height: 35px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.workout-title-link {
+    font-weight: 400;
+    color: #1380B4;
+}
+
+.workout-title-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.table-titles.fixed-width {
+    width: 120px;
+}
+
+.table-titles.date {
+    width: 150px;
+}
+
+.table-titles:hover {
+    background: #F5F5F5;
+}
+
+.workout-table-button {
+    background: inherit;
+    border: none;
+    color: #1380B4;
+}
+
+.workout-table-button:hover {
+    text-decoration: underline;
 }
 
 tr {
-    border-top: 1px solid #E6E6EB;
-    border-bottom: 1px solid #E6E6EB;
+    border-top: 1px solid #CCCCD0;
+    border-bottom: 1px solid #CCCCD0;
+    font-size: 12px;
+    height: 50px;
 }
 
-th {
+tr:nth-child(even) {
+    background: #F5F5FA;
+}
 
+.workout-table th {
+    padding: 0px;
+    margin: 0px;
+    background: #E6E6EB;
+    border-bottom: 2px solid #CCCCD0;
+}
+
+td.workout-col.col-title {
+    text-align: left;
 }
 
 td {
-
+    padding-left: 20px;
 }
-// .workout-type .workout-date .workout-title .workout-duration .workout-distance .workout-action {
-//  display: table-cell;
-// }

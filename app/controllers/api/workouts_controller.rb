@@ -39,7 +39,7 @@ class Api::WorkoutsController < ApplicationController
 
         @workout.destroy!
 
-        @workout
+        render json: @workout
     end 
 
     private

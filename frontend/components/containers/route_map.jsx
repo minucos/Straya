@@ -85,16 +85,21 @@ class RouteMap extends React.Component {
 
 
     render() {
-
+    
         return (
-            <div>
-                <div className="map-index" id={`map-${this.props.route.id}`}>
+            <div className={this.props.className}>
+                <div className={`map-${this.props.mapType}`} id={`map-${this.props.route.id}`}>
                     MAP GOES HERE
                 </div>
                 <div className="route-stats">
-                    <Link to={`athlete/route/${this.props.route.id}`} className="route-title">
+                    <Link to={`/routes/${this.props.route.id}`} className="route-title">
                         {this.props.route.title}
                     </Link>
+                    <div className="profile-heading">
+                        <img id="profile-pic-heading" src={window.images.demo_profile_pic} alt="Profile Pic" />
+                        {/* <div className="profile-name-heading">By {this.props.athlete.fname} {this.props.athlete.lname}</div> */}
+                        <div className="profile-name-heading">By Tobias Dundridge</div>
+                    </div> 
                     <p className="route-description">
                         {this.props.route.description}
                     </p>

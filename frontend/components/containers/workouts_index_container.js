@@ -1,12 +1,18 @@
 import { connect } from 'react-redux';
 import Workouts from "./workouts_index";
+import filterWorkouts from "../../reducers/selectors/sort_selector";
 import { fetchWorkouts, deleteWorkout } from "../../actions/workouts_actions";
+import {
+    sortDate, sortTitle, sortTime, sortDistance
+} from "../../actions/sort_actions";
 
 const mapStateToProps = (state) => {
-    let workouts = Object.values(state.entities.workouts);
+    
+    let workouts = filterWorkouts(state);
 
     return ({
-        workouts: workouts
+        workouts: workouts,
+        sortBy: state.ui.sortBy,
     })
 }
 
@@ -14,6 +20,10 @@ const mapDispatchToProps = (dispatch) => {
     return ({
         fetchWorkouts: () => dispatch(fetchWorkouts()),
         deleteWorkout: (workoutId) => dispatch(deleteWorkout(workoutId)),
+        sortDate: () => dispatch(sortDate()),
+        sortTitle: () => dispatch(sortTitle()),
+        sortTime: () => dispatch(sortTime()),
+        sortDistance: () => dispatch(sortDistance()),
     })
 }
 

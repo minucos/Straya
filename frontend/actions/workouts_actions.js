@@ -42,7 +42,7 @@ export const fetchWorkouts = () => dispatch => (
 
 export const fetchWorkout = (id) => dispatch => (
     workoutsAPIUtil.fetchWorkout(id)
-        .then(workout => dispatch(receiveRoute(workout)),
+        .then(workout => dispatch(receiveWorkout(workout)),
             errors => dispatch(receiveErrors(errors.responseJSON))
         )
 )

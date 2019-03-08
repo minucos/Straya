@@ -1,0 +1,111 @@
+.workout-show {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 90px;
+    display: flex;
+    height: 100vh;
+}
+
+.workout-actions {
+    width:  150px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.workout-show-button {
+    border: 1px solid #E6E6EB;
+    width: 50%;
+    height: 100%;
+    font-size: 20px;
+}
+
+.workout-details {
+    border: 1px solid #E6E6EB;
+    width: 80%;
+    height: 220px;
+}
+
+.workout-details-header {
+    background: #F5F5FA;
+    padding: 8px;
+    border-bottom: 1px solid #E6E6EB;
+}
+
+#workout-heading {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.workout-body {
+    display: flex;
+    height: 22px;
+}
+
+.workout-information {
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 50%;
+    height: 158px;
+    display: flex;
+    border-right: 1px solid #E6E6EB;
+}
+
+#workout-profile-pic {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.workout-info {
+    padding-left: 20px;
+}
+
+#workout-date {
+    font-size: 13px;
+}
+
+#workout-title {
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+#workout-body {
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.workout-details-stats {
+    width: 50%;
+}
+
+.workout-stats {
+    display: flex;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.show-label {
+    font-size: 13px;
+    color: #99999E;
+}
+
+.workout-stat {
+    font-size: 25px;
+}
+
+#workout-distance {
+    padding-right: 20px;
+}
+
+#workout-avg-speed {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #E6E6EB;
+
+}

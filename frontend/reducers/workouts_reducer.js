@@ -18,9 +18,9 @@ const WorkoutsReducer = (oldstate = {}, action) => {
             return newState;
 
         case REMOVE_WORKOUT:
-            newstate = Object.assign({}, oldstate);
+            newState = Object.assign({}, oldstate);
 
-            delete newstate[action.workoutId];
+            delete newState[action.workoutId];
 
             return newState;
             

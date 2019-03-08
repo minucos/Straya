@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 
 const RouteIndexItem = (props) => (
     <div className="route-item" id={props.route.id}>
-        <RouteMap className="route-index-map" route={props.route} locations={props.locations}/>
+        <RouteMap 
+            className="route-index-map" 
+            route={props.route} 
+            locations={props.locations}
+            mapType="index"/>
     </div>
 )
 
