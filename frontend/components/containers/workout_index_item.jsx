@@ -48,9 +48,11 @@ class WorkoutIndexItem extends React.Component {
                     {`${(this.props.workout.distance)/1000} km`}    
                 </td>
                 <td className="workout-col col-action" data-field-name="action">
-                    <button className="workout-table-button">
-                        Edit
-                    </button>
+                    <Link to={`/workouts/${this.props.workout.id}/edit`}>
+                        <button className="workout-table-button">
+                            Edit
+                        </button>
+                    </Link>
                     <button className="workout-table-button" onClick={this.remove.bind(this)}>
                         Delete
                     </button>

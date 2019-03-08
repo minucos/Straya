@@ -8,6 +8,7 @@ const RouteIndexItem = (props) => (
             className="route-index-map" 
             route={props.route} 
             locations={props.locations}
+            athlete={props.athlete}
             mapType="index"/>
     </div>
 )

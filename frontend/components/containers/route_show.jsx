@@ -27,6 +27,7 @@ class RouteShow extends React.Component {
                 className="route-show-map"
                 route={this.props.route}
                 locations={this.props.locations}
+                athlete={this.props.athlete}
                 mapType="show" />
         </div>
         )

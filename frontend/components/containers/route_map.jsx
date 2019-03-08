@@ -85,6 +85,9 @@ class RouteMap extends React.Component {
 
 
     render() {
+
+        let name = `${this.props.athlete.fname} ${this.props.athlete.lname}`;
+
         if (this.props.mapType === "feed") {
             return (
                 <div className="feed-route">
@@ -130,8 +133,7 @@ class RouteMap extends React.Component {
                     </Link>
                     <div className="profile-heading">
                         <img id="profile-pic-heading" src={window.images.demo_profile_pic} alt="Profile Pic" />
-                        {/* <div className="profile-name-heading">By {this.props.athlete.fname} {this.props.athlete.lname}</div> */}
-                        <div className="profile-name-heading">By Tobias Dundridge</div>
+                        <div className="profile-name-heading">By {name}</div>
                     </div> 
                     <p className="route-description">
                         {this.props.route.description}

@@ -1,9 +1,25 @@
-.workout-show {
+.workout-show-page {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 90px;
-    display: flex;
+    margin-top: 70px;
     height: 100vh;
+}
+
+.workout-index-link {
+    font-size: 13px;
+    padding-bottom: 20px;
+}
+
+#link-to-index {
+    color: #606065;
+}
+
+#link-to-index:hover {
+    text-decoration: underline;
+}
+
+.workout-show {
+    display: flex;
 }
 
 .workout-actions {

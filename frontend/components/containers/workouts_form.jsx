@@ -7,11 +7,15 @@ class WorkoutsForm extends React.Component {
 
         this.state = this.props.workout;
 
-        this.hours = 0;
-        this.minutes = 0;
-        this.seconds = 0;
+        // this.hours = 0;
+        // this.minutes = 0;
+        // this.seconds = 0;
 
         this.submitWorkout = this.submitWorkout.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.fetchWorkout(this.props.workoutId);
     }
 
     update(field) {
@@ -47,6 +51,14 @@ class WorkoutsForm extends React.Component {
     };
 
     render() {
+        if (this.props.workout === undefined) {
+            return null;
+        }
+
+        this.hours = Math.floor(this.props.workout.duration / 3600);
+        this.minutes = Math.floor((this.props.workout.duration - (this.hours * 3600)) / 60);
+        this.seconds = this.props.workout.duration % 60;
+
         return (
             <div className="create-workout-page">
                 <div className="create-workout-container">
@@ -61,7 +73,7 @@ class WorkoutsForm extends React.Component {
                                     id="distance-input"
                                     type="number"
                                     step="0.01" 
-
+                                    value={this.props.workout.distance/1000}
                                     onChange={this.update("distance")}    
                                 />
                             </div>
@@ -72,23 +84,26 @@ class WorkoutsForm extends React.Component {
                                         id="time-input-hours"
                                         className="time-input"
                                         type="number" 
-                                        placeholder="HH"
+                                        value={this.hours}
                                         onChange={this.updateTime("hours")}
                                     />
+                                    <div className="time-label">hr</div>
                                     <input 
                                         id="time-input-minutes"
                                         className="time-input"
                                         type="number"
-                                        placeholder="MM"
+                                        value={this.minutes}
                                         onChange={this.updateTime("minutes")} 
                                     />
+                                    <div className="time-label">min</div>
                                     <input 
                                         id="time-input-seconds"
                                         className="time-input"
                                         type="number"
-                                        placeholder="SS"
+                                        value={this.seconds}
                                         onChange={this.updateTime("seconds")} 
                                     />
+                                    <div className="time-label">s</div>
                                 </div>
                             </div>
                         </div>
@@ -104,21 +119,29 @@ class WorkoutsForm extends React.Component {
                             <input 
                                 className="workout-title"
                                 type="text"
-                                value={this.state.title}
+                                value={this.props.workout.title}
                                 onChange={this.update("title")}
                             />
                         <label id="description-label">Description</label>
                             <textarea
                                 className="workout-description"
                                 type="text"
-                                value={this.state.description}
+                                value={this.props.workout.body}
                                 onChange={this.update("description")}
                             >
                             </textarea>
-                        <input 
-                            id="create-workout-btn"
-                            type="submit" 
-                            value="Create"/>
+                        <div className="workout-form-buttons">
+                            <input 
+                                id="workout-submit-btn"
+                                type="submit" 
+                                value={this.props.buttonText}/>
+                            <Link 
+                                id="workout-cancel-btn"
+                                to="/athlete/training" 
+                            >
+                                Cancel
+                            </Link>
+                        </div>
                     </form>
                 </div>
             </div>

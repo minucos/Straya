@@ -62,6 +62,7 @@ class ActivityFeedItem extends React.Component {
                     route={this.props.activity}
                     locations={locations}
                     mapType="feed"
+                    athlete={this.props.athlete}
                 />
             );
         }

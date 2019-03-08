@@ -4,12 +4,13 @@ import { fetchRoutes, deleteRoute } from "../../actions/routes_actions";
 
 const mapStateToProps = (state) => {
     let routes = Object.values(state.entities.routes);
-
     let locations = Object.values(state.entities.locations);
+    let athlete = state.entities.athletes[state.session.id];
 
     return ({
         routes: routes,
         locations: locations,
+        athlete: athlete,
     })
 }
 

@@ -10,6 +10,7 @@ import NewRoutesFormContainer from "./containers/new_routes_form_container";
 import WorkoutsIndexContainer from "./containers/workouts_index_container";
 import WorkoutShowContainer from "./containers/workout_show_container";
 import NewWorkoutsFormContainer from "./containers/new_workouts_form_container"
+import WorkoutsEditFormContainer from "./containers/workouts_edit_form_container";
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
@@ -21,6 +22,7 @@ const App = () => (
             <ProtectedRoute path="/athlete/dashboard" component={DashboardContainer}/>
             <ProtectedRoute path="/athlete/routes" component={RoutesIndexContainer}/>
             <ProtectedRoute path="/athlete/training" component={WorkoutsIndexContainer}/>
+            <ProtectedRoute path="/workouts/:id/edit" component={WorkoutsEditFormContainer}/>
             <ProtectedRoute path="/workouts/:id" component={WorkoutShowContainer}/>
             <ProtectedRoute path="/athlete/upload" component={NewWorkoutsFormContainer}/>
             <ProtectedRoute path="/routes/new" component={NewRoutesFormContainer}/>

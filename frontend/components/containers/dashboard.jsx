@@ -52,6 +52,7 @@ class Dashboard extends React.Component {
                     key={`${activity.title}-${activity.id}`}
                     activity={activity}
                     locations={this.props.locations}
+                    athlete={this.props.athlete}
                 />
             )
         })
@@ -75,32 +76,34 @@ class Dashboard extends React.Component {
 
         return (
             <div className="dashboard">
-                <div id="profile">
-                    <div id="profile-header">
-                        <img id="profile-pic" src={window.images.demo_profile_pic} alt="Profile Pic"/>
-                        <h2 id="profile-heading" >{this.props.athlete.fname} {this.props.athlete.lname}</h2>
-                        <ul id="profile-container">
-                            <li id="first-li">
-                                <div className="profile-subheading">Following</div>
-                                <div id="following-total">-</div>
-                            </li>
-                            <li>
-                                <div className="profile-subheading">Followers</div>
-                                <div id="followers-total">-</div>
-                            </li>
-                            <li>
-                                <div className="profile-subheading">Activities</div>
-                                <div id="activities-total">{Object.values(this.props.workouts).length}</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="profile-footer">
-                        <div id="latest-activity">
-                            Latest Activity
+                <div className="left-bar">
+                    <div id="profile">
+                        <div id="profile-header">
+                            <img id="profile-pic" src={window.images.demo_profile_pic} alt="Profile Pic"/>
+                            <h2 id="profile-heading" >{this.props.athlete.fname} {this.props.athlete.lname}</h2>
+                            <ul id="profile-container">
+                                <li id="first-li">
+                                    <div className="profile-subheading">Following</div>
+                                    <div id="following-total">-</div>
+                                </li>
+                                <li>
+                                    <div className="profile-subheading">Followers</div>
+                                    <div id="followers-total">-</div>
+                                </li>
+                                <li>
+                                    <div className="profile-subheading">Activities</div>
+                                    <div id="activities-total">{Object.values(this.props.workouts).length}</div>
+                                </li>
+                            </ul>
                         </div>
-                        <p id="latest-activity-info">
-                            {lastActivity}
-                        </p>
+                        <div id="profile-footer">
+                            <div id="latest-activity">
+                                Latest Activity
+                            </div>
+                            <p id="latest-activity-info">
+                                {lastActivity}
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <ul className="activity-feed">

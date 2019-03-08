@@ -18,6 +18,7 @@ class RouteIndex extends React.Component {
                     key={route.id}
                     route={route}
                     locations={locations}
+                    athlete={this.props.athlete}
                 />
             )
         })

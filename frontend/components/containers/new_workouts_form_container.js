@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
             distance: 0,
             duration: 0,
             athlete_id: athleteId,
-        }
+        },
+        buttonText: "Create",
     })
 };
 
