@@ -83,6 +83,27 @@ class RouteMap extends React.Component {
         return `${date} ${month}, ${year}`;
     }
 
+    formatTime(duration) {
+        let hrs = Math.floor(duration / 3600);
+        duration = duration % 3600;
+        let mins = Math.floor(duration / 60);
+        duration = duration % 60;
+        let secs = duration;
+
+        if (mins < 10) {
+            mins = `0${mins}`;
+        };
+        if (secs < 10) {
+            secs = `0${secs}`;
+        };
+
+        if (hrs === 0) {
+            return `${mins}:${secs}`;
+        }
+
+        return `${hrs}:${mins}:${secs}`;
+    };
+
 
     render() {
 
@@ -112,7 +133,7 @@ class RouteMap extends React.Component {
                         <div className="feed-route-info-time">
                             <div className="feed-label">Est. Moving Time</div>
                             <div className="feed-stat">
-                                {Math.floor(this.state.duration / 60)}:{this.state.duration % 60}
+                                {this.formatTime(this.state.duration)}
                             </div>
                         </div>
                     </div>
@@ -149,7 +170,7 @@ class RouteMap extends React.Component {
                             Est. Moving Time
                         </li>
                         <li id="route-est-moving-time">
-                            {Math.floor(this.state.duration / 60)}:{this.state.duration % 60}
+                            {this.formatTime(this.state.duration)}
                         </li>
                     </ul>
                     <div className="route-footer">Created on {this.formatDate(new Date(this.props.route.created_at))}

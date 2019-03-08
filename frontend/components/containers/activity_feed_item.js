@@ -38,7 +38,7 @@ class ActivityFeedItem extends React.Component {
     }
 
     avgSpeed(duration, distance) {
-        let avgSecondsPerKm = Math.floor(duration / (distance / 1000));
+        let avgSecondsPerKm = Math.floor(duration / distance);
         let avgMins = Math.floor(avgSecondsPerKm / 60);
         let avgSecs = avgSecondsPerKm % 60;
 
