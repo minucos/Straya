@@ -12,6 +12,9 @@ const AthletesReducer = (oldState = {}, action) => {
             newState = Object.assign({}, oldState, { [action.athlete.id]: action.athlete });
 
             return newState;
+        
+        case LOGOUT_CURRENT_USER:
+            return {}
             
         default:
             return oldState;

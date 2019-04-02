@@ -2,6 +2,10 @@ import { RECEIVE_ALL_ROUTES,
          RECEIVE_ROUTE,
          REMOVE_ROUTE
 } from "../actions/routes_actions";
+import {
+    RECEIVE_CURRENT_USER,
+    LOGOUT_CURRENT_USER,
+} from "../actions/session_actions";
 
 const RoutesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -23,6 +27,9 @@ const RoutesReducer = (oldState = {}, action) => {
             delete newState[action.routeId];
 
             return newState;
+
+        case LOGOUT_CURRENT_USER:
+            return {}
             
         default:
             return oldState;

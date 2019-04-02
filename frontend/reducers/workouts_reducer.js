@@ -2,6 +2,10 @@ import { RECEIVE_ALL_WORKOUTS,
          RECEIVE_WORKOUT,
          REMOVE_WORKOUT
 } from "../actions/workouts_actions";
+import {
+    RECEIVE_CURRENT_USER,
+    LOGOUT_CURRENT_USER,
+} from "../actions/session_actions";
 
 const WorkoutsReducer = (oldstate = {}, action) => {
     Object.freeze(oldstate);
@@ -23,6 +27,9 @@ const WorkoutsReducer = (oldstate = {}, action) => {
             delete newState[action.workoutId];
 
             return newState;
+
+        case LOGOUT_CURRENT_USER:
+            return {}
             
         default:
             return oldstate;

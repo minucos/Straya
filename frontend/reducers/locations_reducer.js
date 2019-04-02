@@ -3,6 +3,10 @@ import {
     RECEIVE_ROUTE,
     REMOVE_ROUTE
 } from "../actions/routes_actions";
+import {
+    RECEIVE_CURRENT_USER,
+    LOGOUT_CURRENT_USER,
+} from "../actions/session_actions";
 
 const LocationsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -17,6 +21,9 @@ const LocationsReducer = (oldState = {}, action) => {
             newState = Object.assign({}, oldState, action.locations );
 
             return newState;
+
+        case LOGOUT_CURRENT_USER:
+            return {}
 
         default:
             return oldState;
