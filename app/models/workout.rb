@@ -3,4 +3,5 @@ class Workout < ApplicationRecord
 
     belongs_to :athlete
 
+    has_one_attached :photo
 end

@@ -14,6 +14,8 @@ class Athlete < ApplicationRecord
 
     has_many :workouts
 
+    has_one_attached :profile_photo
+
     def self.find_by_credentials(email, password)
         athlete = Athlete.find_by(email: email)
         

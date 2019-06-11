@@ -68,6 +68,6 @@ class Api::RoutesController < ApplicationController
 
     def location_params
         params.require(:locations)
-    end 
+    end x
 
 end
