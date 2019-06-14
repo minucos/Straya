@@ -28,6 +28,10 @@
     position: relative;
 }
 
+.feed-workout-photo {
+    width: 100%;
+}
+
 .feed-header-info {
     padding-left: 20px;
 }
@@ -76,7 +80,7 @@
 }
 
 .feed-workout {
-    height: 150px;
+    // height: 150px;
     width: 100%;
     background: #FFFFFF;
     margin-bottom: 20px;

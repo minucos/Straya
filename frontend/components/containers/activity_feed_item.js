@@ -50,6 +50,23 @@ class ActivityFeedItem extends React.Component {
     }
 
     render() {
+        let profilePhoto = (
+            <img
+                id="feed-profile-pic"
+                src={window.images.demo_profile_pic}
+                alt="Profile Pic"
+            />
+        )
+
+        if (this.props.athlete.photoUrl !== undefined) {
+            profilePhoto = (
+                <img
+                    className="feed-profile-pic"
+                    src={this.props.athlete.photoUrl}
+                    alt="Profile Pic"
+                />
+            )
+        }
 
         if (this.props.activity.workout_type === undefined) {
 
@@ -70,7 +87,7 @@ class ActivityFeedItem extends React.Component {
         return (
             <div className="feed-workout">
                 <div className="feed-workout-profile-line">
-                    <img className="feed-profile-pic" src={window.images.demo_profile_pic} alt="Profile Pic" />
+                    {profilePhoto}
                     <div className="feed-header-info">
                         <div className="feed-date">
                             Created on {this.formatDate(new Date(this.props.activity.created_at))}
@@ -103,9 +120,9 @@ class ActivityFeedItem extends React.Component {
                         </div>
                     </div>
 
-
                     
                 </div>
+                <img className="feed-workout-photo" src={this.props.activity.photoUrl} />
             </div>
         );
     }

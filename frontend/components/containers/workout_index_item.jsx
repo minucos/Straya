@@ -20,6 +20,13 @@ class WorkoutIndexItem extends React.Component {
         duration = duration % 60;
         let secs = duration;
 
+        if (mins < 10) {
+            mins = `0${mins}`;
+        }
+        if (secs < 10) {
+            secs = `0${secs}`
+        }
+        
         return `${hrs}:${mins}:${secs}`;
     }
 

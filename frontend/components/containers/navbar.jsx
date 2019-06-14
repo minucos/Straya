@@ -20,6 +20,24 @@ const NavBar = (props) => {
         );
     }
 
+    let profilePhoto = (
+        <img 
+            id="nav-image"
+            src={window.images.demo_profile_pic}
+            alt="Profile Pic"
+        />
+    )
+
+    if (props.currentUser.photoUrl !== undefined ) {
+        profilePhoto = (
+            <img
+                id="nav-image"
+                src={props.currentUser.photoUrl}
+                alt="Profile Pic"
+            />  
+        )
+    }
+
     if (props.currentUser === undefined) {
         return (
             <div id="global-nav">
@@ -66,11 +84,7 @@ const NavBar = (props) => {
                             <button 
                                 className="nav-dropdown-btn profile-nav"
                                 id="profile-nav">
-                                <img 
-                                    id="nav-image"
-                                    src={window.images.demo_profile_pic} 
-                                    alt="Profile Pic"
-                                />⌄
+                                {profilePhoto}⌄
                             </button>
                             <div className="nav-dropdown-content profile-nav">
                                 <Link to="/athlete/profile">
@@ -107,7 +121,7 @@ const NavBar = (props) => {
                         </div>
                     </div>
                 </nav>
-            </div>
+            </div>            
         )
     }
 }

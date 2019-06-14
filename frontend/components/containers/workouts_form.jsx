@@ -44,15 +44,27 @@ class WorkoutsForm extends React.Component {
         return (hours * 3600) + (minutes * 60) + seconds;
     };
 
+    handleFile(e) {
+        this.setState({photoFile: e.currentTarget.files[0]})
+    };
+
     submitWorkout(e) {
         e.preventDefault();
+        const formData = new FormData();
 
-        this.setState({
-            duration: this.calcDuration(this.hours, this.minutes, this.seconds)
-        }, () => 
-            this.props.action(this.state)
-            .then(() => this.props.history.push("/athlete/training"))
-        );
+        formData.append("workout[title]", this.state.title)
+        formData.append("workout[body]", this.state.body)
+        formData.append("workout[workout_type]", this.state.workout_type)
+        formData.append("workout[distance]", this.state.distance)
+        formData.append("workout[duration]", this.calcDuration(this.hours, this.minutes, this.seconds))
+        formData.append("workout[athlete_id]", this.state.athlete_id)
+        
+        if (this.state.photoFile) {
+            formData.append("workout[photo]", this.state.photoFile)
+        }
+        debugger
+        this.props.action(formData)
+            .then(() => this.props.history.push("/athlete/training"));
     };
 
     render() {
@@ -131,6 +143,8 @@ class WorkoutsForm extends React.Component {
                                 onChange={this.update("body")}
                             >
                             </textarea>
+                        <label id="photo-label">Add a photo</label>
+                            <input type="file" onChange={this.handleFile.bind(this)}/>
                         <div className="workout-form-buttons">
                             <input 
                                 id="workout-submit-btn"

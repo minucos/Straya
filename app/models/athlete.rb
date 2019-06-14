@@ -2,6 +2,7 @@ class Athlete < ApplicationRecord
     validates :email, :session_token, :password_digest, presence: true
     validates :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
+    validate :ensure_profile_photo
 
     after_initialize :ensure_session_token
     
@@ -15,6 +16,12 @@ class Athlete < ApplicationRecord
     has_many :workouts
 
     has_one_attached :profile_photo
+
+    def ensure_profile_photo
+        if !self.profile_photo.attached?
+            
+        end
+    end
 
     def self.find_by_credentials(email, password)
         athlete = Athlete.find_by(email: email)

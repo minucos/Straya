@@ -107,13 +107,29 @@ class RouteMap extends React.Component {
 
     render() {
 
-        let name = `${this.props.athlete.fname} ${this.props.athlete.lname}`;
+        let profilePhoto = (
+            <img
+                id="feed-profile-pic"
+                src={window.images.demo_profile_pic}
+                alt="Profile Pic"
+            />
+        )
+
+        if (this.props.athlete.photoUrl !== undefined) {
+            profilePhoto = (
+                <img
+                    className="feed-profile-pic"
+                    src={this.props.athlete.photoUrl}
+                    alt="Profile Pic"
+                />
+            )
+        }
 
         if (this.props.mapType === "feed") {
             return (
                 <div className="feed-route">
                     <div className="feed-profile-line">
-                        <img className="feed-profile-pic" src={window.images.demo_profile_pic} alt="Profile Pic" />
+                        {profilePhoto}
                         <div className="feed-header-info">
                             <Link to={`/routes/${this.props.route.id}`} className="feed-title">
                                 {this.props.route.title}
