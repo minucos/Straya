@@ -73,7 +73,7 @@ class Dashboard extends React.Component {
             }
             lastActivity = `${title} ${symbol} ∙ ${date}`;
         }
-
+        debugger
         return (
             <div className="dashboard">
                 <div className="left-bar">

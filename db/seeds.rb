@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 ActiveRecord::Base.transaction do
 
 Location.destroy_all
@@ -15,6 +17,10 @@ Athlete.destroy_all
 
 # Athletes
 demouser = Athlete.create(email: "test", fname: "Tobias", lname: "Dundridge", password: "password")
+
+file = open("https://straya-dev.s3-us-west-1.amazonaws.com/GgVp3SrNp8tzPHg86FGWwbZS")
+
+demouser.profile_photo.attach(io: file, filename: 'demouser-profile-photo.jpg')
 
 #Workouts
 workout1 = Workout.create(title: "My first workout", body: "gotta work on that summer bod", workout_type: "run", duration: 1800, distance: 5, athlete_id: demouser.id)
