@@ -9,7 +9,7 @@ class RouteShow extends React.Component {
     };
     
     render() {
-        if (this.props.route === undefined) {
+        if (this.props.route === undefined || this.props.athlete === undefined ) {
             return null;
         }
 

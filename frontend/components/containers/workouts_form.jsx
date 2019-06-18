@@ -64,7 +64,7 @@ class WorkoutsForm extends React.Component {
         }
         debugger
         this.props.action(formData)
-            .then(() => this.props.history.push("/athlete/training"));
+            .then(() => this.props.history.push("/athlete/dashboard"));
     };
 
     render() {

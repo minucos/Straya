@@ -106,7 +106,6 @@ class RouteMap extends React.Component {
 
 
     render() {
-
         let profilePhoto = (
             <img
                 id="feed-profile-pic"
@@ -116,13 +115,23 @@ class RouteMap extends React.Component {
         )
 
         if (this.props.athlete.photoUrl !== undefined) {
-            profilePhoto = (
-                <img
-                    className="feed-profile-pic"
-                    src={this.props.athlete.photoUrl}
-                    alt="Profile Pic"
-                />
-            )
+            if (this.props.mapType === "feed") {
+                profilePhoto = (
+                    <img
+                        className="feed-profile-pic"
+                        src={this.props.athlete.photoUrl}
+                        alt="Profile Pic"
+                    />
+                )
+            } else {
+                profilePhoto = (
+                    <img
+                        id="profile-pic-heading"
+                        src={this.props.athlete.photoUrl}
+                        alt="Profile Pic"
+                    />
+                )
+            }
         }
 
         if (this.props.mapType === "feed") {
@@ -169,8 +178,8 @@ class RouteMap extends React.Component {
                         {this.props.route.title}
                     </Link>
                     <div className="profile-heading">
-                        <img id="profile-pic-heading" src={window.images.demo_profile_pic} alt="Profile Pic" />
-                        <div className="profile-name-heading">By {name}</div>
+                        {profilePhoto}
+                        <div className="profile-name-heading">By {this.props.athlete.fname}</div>
                     </div> 
                     <p className="route-description">
                         {this.props.route.description}
