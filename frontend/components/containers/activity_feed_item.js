@@ -75,12 +75,13 @@ class ActivityFeedItem extends React.Component {
             });
 
             return (
-                <RouteMap
-                    route={this.props.activity}
-                    locations={locations}
-                    mapType="feed"
-                    athlete={this.props.athlete}
-                />
+                null
+                // <RouteMap
+                //     route={this.props.activity}
+                //     locations={locations}
+                //     mapType="feed"
+                //     athlete={this.props.athlete}
+                // />
             );
         }
 

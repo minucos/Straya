@@ -73,7 +73,7 @@ class Dashboard extends React.Component {
             }
             lastActivity = `${title} ${symbol} ∙ ${date}`;
         }
-        debugger
+
         return (
             <div className="dashboard">
                 <div className="left-bar">
@@ -84,11 +84,11 @@ class Dashboard extends React.Component {
                             <ul id="profile-container">
                                 <li id="first-li">
                                     <div className="profile-subheading">Following</div>
-                                    <div id="following-total">-</div>
+                                    <div id="following-total">{this.props.athlete.followees.length}</div>
                                 </li>
                                 <li>
                                     <div className="profile-subheading">Followers</div>
-                                    <div id="followers-total">-</div>
+                                    <div id="followers-total">{this.props.athlete.followers.length}</div>
                                 </li>
                                 <li>
                                     <div className="profile-subheading">Activities</div>

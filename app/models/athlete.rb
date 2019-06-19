@@ -2,18 +2,42 @@ class Athlete < ApplicationRecord
     validates :email, :session_token, :password_digest, presence: true
     validates :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
-    validate :ensure_profile_photo
+    # validate :ensure_profile_photo
 
     after_initialize :ensure_session_token
     
     attr_reader :password
 
     has_many :routes,
-    primary_key: :id,
-    foreign_key: :creator_id,
-    class_name: "Route"
+        primary_key: :id,
+        foreign_key: :creator_id,
+        class_name: "Route"
 
     has_many :workouts
+
+    has_many :in_follows,
+        foreign_key: :followee_id,
+        class_name: "Follow"
+    
+    has_many :out_follows,
+        foreign_key: :follower_id,
+        class_name: "Follow"
+    
+    has_many :followers,
+        through: :in_follows,
+        source: :follower
+
+    has_many :followees,
+        through: :out_follows,
+        source: :followee
+
+    has_many :followed_workouts,
+        through: :followees,
+        source: :workouts
+
+    has_many :followed_routes,
+        through: :followees,
+        source: :routes 
 
     has_one_attached :profile_photo
 
