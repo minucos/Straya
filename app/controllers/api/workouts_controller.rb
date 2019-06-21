@@ -19,7 +19,7 @@ class Api::WorkoutsController < ApplicationController
     end 
 
     def index
-        @workouts = current_user.workouts
+        @workouts = Workout.all
     end
 
     def update

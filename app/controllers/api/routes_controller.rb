@@ -37,7 +37,7 @@ class Api::RoutesController < ApplicationController
     end 
 
     def index
-        @routes = current_user.routes
+        @routes = Route.all
     end 
 
     def update
