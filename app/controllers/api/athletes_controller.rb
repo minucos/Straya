@@ -15,6 +15,16 @@ class Api::AthletesController < ApplicationController
         end 
     end 
 
+    def show
+        @athlete = Athlete.find(params[:id])
+    end
+
+    def index
+        followers = current_user.followers.pluck('id')
+
+        @athletes = Athlete.where('id = ? OR id IN (?)', current_user.id, followers)
+    end
+
     private
 
     def athlete_params

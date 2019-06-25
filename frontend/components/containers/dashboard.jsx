@@ -7,6 +7,7 @@ class Dashboard extends React.Component {
     componentDidMount() {
         this.props.fetchWorkouts();
         this.props.fetchRoutes();
+        this.props.fetchAthletes();
     };
 
     formatDate(dateString) {
@@ -52,7 +53,7 @@ class Dashboard extends React.Component {
                     key={`${activity.title}-${activity.id}`}
                     activity={activity}
                     locations={this.props.locations}
-                    athlete={this.props.athlete}
+                    athletes={this.props.athletes}
                 />
             )
         })

@@ -50,6 +50,10 @@ class ActivityFeedItem extends React.Component {
     }
 
     render() {
+        if (this.props.athletes[this.props.activity.creator_id] === undefined) {
+            return null;
+        }
+
         let profilePhoto = (
             <img
                 id="feed-profile-pic"
@@ -58,17 +62,17 @@ class ActivityFeedItem extends React.Component {
             />
         )
 
-        if (this.props.athlete.photoUrl !== undefined) {
-            profilePhoto = (
-                <img
-                    className="feed-profile-pic"
-                    src={this.props.athlete.photoUrl}
-                    alt="Profile Pic"
-                />
-            )
-        }
-
         if (this.props.activity.workout_type === undefined) {
+            if (this.props.athletes[this.props.activity.creator_id].photoUrl !== undefined) {
+
+                profilePhoto = (
+                    <img
+                        className="feed-profile-pic"
+                        src={this.props.athletes[this.props.activity.creator_id].photoUrl}
+                        alt="Profile Pic"
+                    />
+                )
+            }
 
             let locations = Object.values(this.props.locations).filter(location => {
                 return location.route_id == this.props.activity.id;
@@ -79,7 +83,7 @@ class ActivityFeedItem extends React.Component {
                     route={this.props.activity}
                     locations={locations}
                     mapType="feed"
-                    athlete={this.props.athlete}
+                    athlete={this.props.athletes[this.props.activity.creator_id]}
                 />
             );
         }
