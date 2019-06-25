@@ -1,5 +1,5 @@
 const filterWorkouts = (state) => {
-    let workoutArr = Object.values(state.entities.workouts);
+    let workoutArr = Object.values(state.entities.workouts).filter( workout => workout.athlete_id === state.session.id);
     
     let sorted;
 

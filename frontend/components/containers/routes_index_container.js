@@ -3,7 +3,7 @@ import Routes from "./routes_index";
 import { fetchRoutes, deleteRoute } from "../../actions/routes_actions";
 
 const mapStateToProps = (state) => {
-    let routes = Object.values(state.entities.routes);
+    let routes = Object.values(state.entities.routes).filter( route => route.creator_id === state.session.id);
     let locations = Object.values(state.entities.locations);
     let athlete = state.entities.athletes[state.session.id];
 
