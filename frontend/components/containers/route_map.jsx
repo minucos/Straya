@@ -108,13 +108,13 @@ class RouteMap extends React.Component {
     render() {
         let profilePhoto = (
             <img
-                id="feed-profile-pic"
+                className="feed-profile-pic"
                 src={window.images.demo_profile_pic}
                 alt="Profile Pic"
             />
         )
 
-        if (this.props.athlete.photoUrl !== undefined) {
+        if (this.props.athlete.photoUrl !== "") {
             if (this.props.mapType === "feed") {
                 profilePhoto = (
                     <img

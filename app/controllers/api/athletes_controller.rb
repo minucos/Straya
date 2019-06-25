@@ -20,9 +20,9 @@ class Api::AthletesController < ApplicationController
     end
 
     def index
-        followers = current_user.followers.pluck('id')
+        followees = current_user.followees.pluck('id')
 
-        @athletes = Athlete.where('id = ? OR id IN (?)', current_user.id, followers)
+        @athletes = Athlete.where('id = ? OR id IN (?)', current_user.id, followees)
     end
 
     private

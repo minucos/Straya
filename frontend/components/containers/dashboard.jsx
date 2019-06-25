@@ -5,9 +5,9 @@ import AcitvityFeedItem from "./activity_feed_item";
 class Dashboard extends React.Component {
 
     componentDidMount() {
-        this.props.fetchWorkouts();
-        this.props.fetchRoutes();
-        this.props.fetchAthletes();
+        this.props.fetchAthletes()
+        .then(() => this.props.fetchWorkouts())
+        .then(() => this.props.fetchRoutes());
     };
 
     formatDate(dateString) {
@@ -59,7 +59,10 @@ class Dashboard extends React.Component {
         })
 
         let lastActivity = "No recent activities";
-        let workouts = Object.values(this.props.workouts);
+        let workouts = Object.values(this.props.workouts).filter( 
+            workout =>  workout.athlete_id === this.props.athlete.id
+            );
+        debugger
         let last = workouts.length - 1;
 
 
@@ -93,7 +96,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li>
                                     <div className="profile-subheading">Activities</div>
-                                    <div id="activities-total">{Object.values(this.props.workouts).length}</div>
+                                    <div id="activities-total">{workouts.length}</div>
                                 </li>
                             </ul>
                         </div>
