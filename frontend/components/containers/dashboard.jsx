@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
         let workouts = Object.values(this.props.workouts).filter( 
             workout =>  workout.athlete_id === this.props.athlete.id
             );
-        debugger
+
         let last = workouts.length - 1;
 
 

@@ -89,6 +89,9 @@ class ActivityFeedItem extends React.Component {
                 <div className="feed-workout-profile-line">
                     {profilePhoto}
                     <div className="feed-header-info">
+                        <div className="feed-header-name">
+                            {this.props.athletes[this.props.activity.athlete_id].fname} {this.props.athletes[this.props.activity.athlete_id].lname}
+                        </div>
                         <div className="feed-date">
                             Created on {this.formatDate(new Date(this.props.activity.created_at))}
                         </div>

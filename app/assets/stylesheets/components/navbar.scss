@@ -17,14 +17,14 @@
 }
 
 .left-navbar {
-    padding-left: 10%;
+    margin-left: 10%;
     display: inline-flex;
     align-items: center;
 
 }
 
 .right-navbar {
-    margin-right: 5%;
+    margin-right: 10%;
     display: inline-flex;
     flex-direction: row;
     justify-content: space-around;
@@ -34,6 +34,7 @@
     font-weight: bolder;
     color: rgb(252,76,3);
     font-size: 25px;
+    padding-right: 20px;
     text-decoration: none;
     cursor: default;
 }
@@ -60,7 +61,7 @@
 .nav-dropdown {
     position: relative;
     display: inline-block;
-    margin: 0px 20px;
+    margin: 0px 0px;
 }
 
 .nav-dropdown-btn {

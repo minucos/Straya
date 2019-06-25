@@ -32,6 +32,11 @@
     width: 100%;
 }
 
+.feed-header-name {
+    font-size: 13px;
+    font-weight: bold;
+}
+
 .feed-header-info {
     padding-left: 20px;
 }
@@ -89,7 +94,7 @@
 
 .feed-workout-profile-line {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     height: 100px;
 }
 
