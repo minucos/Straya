@@ -18,12 +18,22 @@ Athlete.destroy_all
 # Athletes
 toby = Athlete.create(email: "test", fname: "Tobias", lname: "Dundridge", password: "password")
 
-file = open("https://straya-dev.s3-us-west-1.amazonaws.com/GgVp3SrNp8tzPHg86FGWwbZS")
+tobyPic = open("https://straya-dev.s3-us-west-1.amazonaws.com/GgVp3SrNp8tzPHg86FGWwbZS")
 
-toby.profile_photo.attach(io: file, filename: 'demouser-profile-photo.jpg')
+toby.profile_photo.attach(io: tobyPic, filename: 'demouser-profile-photo.jpg')
 
 andy = Athlete.create(email: "andy@aa.io", fname: "Andy", lname: "Minucos", password: "password")
+
+andyPic = open("https://straya-dev.s3-us-west-1.amazonaws.com/andy_profile_pic.jpg")
+
+andy.profile_photo.attach(io: andyPic, filename: 'andy_profile_pic.jpg')
+
 holly = Athlete.create(email: "holly@aa.io", fname: "Holly", lname: "Minucos", password: "password")
+
+hollyPic = open("https://straya-dev.s3-us-west-1.amazonaws.com/holly_profile_pic.jpg")
+
+holly.profile_photo.attach(io: hollyPic, filename: 'holly_profile_pic.jpg')
+
 bart = Athlete.create(email: "bart@aa.io", fname: "Bart", lname: "Simpson", password: "password")
 homer = Athlete.create(email: "Homer@aa.io", fname: "Homer", lname: "Simpson", password: "password")
 marge = Athlete.create(email: "marge@aa.io", fname: "Marge", lname: "Simpson", password: "password")

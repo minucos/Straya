@@ -28,7 +28,7 @@ const NavBar = (props) => {
         />
     )
 
-    if (props.currentUser !== undefined && props.currentUser.photoUrl !== undefined ) {
+    if (props.currentUser !== undefined && props.currentUser.photoUrl !== "" ) {
         profilePhoto = (
             <img
                 id="nav-image"

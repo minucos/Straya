@@ -47,6 +47,8 @@ class Dashboard extends React.Component {
             return null;
         }
 
+        let { photoUrl } = this.props.athlete;
+
         let activityFeed = this.buildFeed().map( activity => {
             return (
                 <AcitvityFeedItem
@@ -83,7 +85,7 @@ class Dashboard extends React.Component {
                 <div className="left-bar">
                     <div id="profile">
                         <div id="profile-header">
-                            <img id="profile-pic" src={this.props.athlete.photoUrl} alt="Profile Pic"/>
+                            <img id="profile-pic" src={photoUrl !== "" ? photoUrl : window.images.demo_profile_pic } alt="Profile Pic"/>
                             <h2 id="profile-heading" >{this.props.athlete.fname} {this.props.athlete.lname}</h2>
                             <ul id="profile-container">
                                 <li id="first-li">
