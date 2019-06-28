@@ -58,7 +58,7 @@ class RouteMap extends React.Component {
                     let duration = this.state.duration;
 
                     distance += leg.distance.value;
-                    duration += leg.duration.value;
+                    duration += Math.floor(leg.duration.value/2);
 
                     this.setState({
                         distance: distance,
