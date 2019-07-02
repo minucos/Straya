@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
     let locations = Object.values(state.entities.locations);
     let athlete = state.entities.athletes[state.session.id];
 
+    debugger
     return ({
         routes: routes,
         locations: locations,

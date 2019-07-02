@@ -9,6 +9,10 @@ class RouteIndex extends React.Component {
     };
 
     render() {
+        if (this.props.routes.length === 0) {
+            return null;
+        }
+
         let routes = this.props.routes.map( route => {
 
             let locations = this.props.locations.filter( location => location.route_id == route.id)
