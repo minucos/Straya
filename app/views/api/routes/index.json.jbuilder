@@ -15,4 +15,12 @@ json.locations do
       end 
     end 
   end 
-end 
+end
+
+json.athletes do
+  @routes.each do |route|
+    json.set! route.creator.id do
+      json.partial! 'api/athletes/athlete', athlete: route.creator
+    end
+  end
+end

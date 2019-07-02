@@ -5,19 +5,21 @@ export const RECEIVE_ROUTE = "RECEIVE_ROUTE";
 export const REMOVE_ROUTE = "REMOVE_ROUTE";
 export const RECEIVE_ROUTE_ERRORS = "RECEIVE_ROUTE_ERRORS";
 
-const receiveAllRoutes = ({routes, locations}) => {
+const receiveAllRoutes = ({routes, locations, athletes}) => {
     return ({
         type: RECEIVE_ALL_ROUTES,
         routes: routes,
-        locations: locations
+        locations: locations,
+        athletes: athletes
     })
 }
 
-const receiveRoute = ({route, locations}) => {
+const receiveRoute = ({route, locations, athlete}) => {
     return ({
         type: RECEIVE_ROUTE,
         route: route,
         locations: locations,
+        athlete: athlete
     })
 }
 

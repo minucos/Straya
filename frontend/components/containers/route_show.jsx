@@ -9,7 +9,9 @@ class RouteShow extends React.Component {
     };
     
     render() {
-        if (this.props.route === undefined || this.props.athlete === undefined ) {
+        const { route, athlete, locations } = this.props;
+
+        if (route === undefined || athlete === undefined ) {
             return null;
         }
 
@@ -19,15 +21,15 @@ class RouteShow extends React.Component {
             <Link id="link-to-index" to="/athlete/routes">
                 My Running Routes 
             </Link>
-            / {this.props.route.title}
+            / {route.title}
         </div>
-            <h1 className="route-show-heading">{this.props.route.title}</h1>
+            <h1 className="route-show-heading">{route.title}</h1>
 
             <RouteMap
                 className="route-show-map"
-                route={this.props.route}
-                locations={this.props.locations}
-                athlete={this.props.athlete}
+                route={route}
+                locations={locations}
+                athlete={athlete}
                 mapType="show" />
         </div>
         )

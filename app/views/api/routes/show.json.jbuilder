@@ -1,5 +1,7 @@
 json.route do
-    json.partial! 'route', route: @route
+    json.set! @route.id do
+      json.partial! 'route', route: @route
+    end   
 end 
 
 json.locations do
@@ -9,3 +11,9 @@ json.locations do
       end 
     end 
 end 
+
+json.athlete do
+  json.set! @route.creator.id do
+    json.partial! 'api/athletes/athlete', athlete: @route.creator
+  end
+end

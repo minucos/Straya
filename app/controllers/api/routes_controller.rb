@@ -33,11 +33,11 @@ class Api::RoutesController < ApplicationController
     end 
 
     def show
-        @route = current_user.routes.find_by(id: params[:id])
+        @route = Route.find_by(id: params[:id])
     end 
 
     def index
-        @routes = Route.all
+        @routes = Route.all.includes(:locations, :creator)
     end 
 
     def update

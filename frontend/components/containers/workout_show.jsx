@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class WorkoutShow extends React.Component {
     
     componentDidMount() {
-        this.props.fetchWorkout(this.props.workoutId);
+        this.props.fetchWorkout(this.props.workoutId)
     }
 
     formatDate(dateString) {
@@ -45,24 +45,25 @@ class WorkoutShow extends React.Component {
     }
 
     render() {
+        const { workout, athlete } = this.props;
 
-        if (this.props.workout === undefined) {
+        if (workout === undefined || athlete === undefined) {
             return null;
         }
 
-        let workout = this.props.workout;
-        
+        const { photoUrl } = athlete;
+
         return (
             <div className="workout-show-page">
                 <div className="workout-index-link">
                     <Link id="link-to-index" to="/athlete/training">
                         My Activities
                     </Link>
-                    / {this.props.workout.title}
+                    / {workout.title}
                 </div>
                 <div className="workout-show">
                     <div className="workout-actions">
-                        <Link to={`/workouts/${this.props.workout.id}/edit`}>
+                        <Link to={`/workouts/${workout.id}/edit`}>
                             <button className="workout-show-button">
                                 ✎
                             </button>
@@ -74,12 +75,12 @@ class WorkoutShow extends React.Component {
                     <div className="workout-details">
                         <div className="workout-details-header">
                             <h2 id="workout-heading">
-                                Tobias Dundridge - {workout.workout_type}
+                                {athlete.fname} {athlete.lname} - {workout.workout_type}
                             </h2>
                         </div>
                         <div className="workout-body">
                             <div className="workout-information">
-                                <img id="workout-profile-pic" src={window.images.demo_profile_pic} alt="Profile Pic" />
+                                <img id="workout-profile-pic" src={ photoUrl !== undefined ? photoUrl : window.images.demo_profile_pic} alt="Profile Pic" />
                                 <div className="workout-info">
                                     <div id="workout-date">
                                         Completed on {this.formatDate(new Date(workout.created_at))}

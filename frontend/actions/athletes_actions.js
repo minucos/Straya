@@ -2,6 +2,7 @@ import * as athletesAPIUtil from '../utils/athletes_api_util' ;
 
 export const RECEIVE_ALL_ATHLETES = "RECEIVE_ALL_ATHLETES";
 export const RECEIVE_ATHLETE = "RECEIVE_ATHLETE";
+export const RECEIVE_ATHLETE_ERRORS = "RECEIVE_ATHLETE_ERRORS";
 
 const receiveAllAthletes = (athletes) => {
     return ({

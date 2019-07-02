@@ -8,7 +8,7 @@ export const fetchAthletes = () => {
 export const fetchAthlete = (athleteId) => {
     return $.ajax({
         method: "GET",
-        url: `api/athletes/${id}`,
+        url: `api/athletes/${athleteId}`,
         data: athleteId
     })
 }

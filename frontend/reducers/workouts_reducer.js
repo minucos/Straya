@@ -17,7 +17,7 @@ const WorkoutsReducer = (oldstate = {}, action) => {
             return action.workouts;
 
         case RECEIVE_WORKOUT:
-            newState = Object.assign({}, oldstate, {[action.workout.id]: action.workout});
+            newState = Object.assign({}, oldstate, action.workout);
             
             return newState;
 

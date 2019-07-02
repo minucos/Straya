@@ -6,8 +6,12 @@ const mapStateToProps = (state, ownProps) => {
     let routeId = ownProps.match.params.id;
     let route = state.entities.routes[routeId];
     let locations = Object.values(state.entities.locations);
-    let athlete = state.entities.athletes[state.session.id];
+    let athlete;
 
+    if (route !== undefined) {
+        athlete = state.entities.athletes[route.creator_id];
+    }
+    
     return ({
         routeId: routeId,
         route: route,

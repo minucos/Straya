@@ -15,7 +15,8 @@ class Api::WorkoutsController < ApplicationController
     end 
 
     def show
-        @workout = current_user.workouts.find_by(id: params[:id])
+        @workout = Workout.find_by(id: params[:id])
+        @athlete = Athlete.find(@workout.athlete_id)
     end 
 
     def index
