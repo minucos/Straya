@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import { Link } from 'react-router-dom';
 
 
@@ -104,6 +104,8 @@ class RoutesForm extends React.Component {
     };
 
     render() {
+        const { titleError, descError } = this.props.errors;
+
         return (
             <div className="route-builder">
                 <div id="global-nav">
@@ -123,19 +125,19 @@ class RoutesForm extends React.Component {
                 <form id="route-form" onSubmit={this.submitMap}>
                     <div id="route-inputs">
                         <input 
-                            className="route-input"
+                            className={ titleError ? "route-input-error" : "route-input" }
                             id="route-title"
                             type="text"
                             value={this.state.title} 
-                            placeholder="Enter a title"
+                            placeholder={titleError ? descError : "Enter a description"}
                             onChange={this.update("title")}
                         />
                         <input 
-                            className="route-input"
+                            className={descError ? "route-input-error" : "route-input"}
                             id="route-description"
                             type="text" 
                             value={this.state.description} 
-                            placeholder="Enter a description"
+                            placeholder={descError ? descError : "Enter a description"}
                             onChange={this.update("description")}
                         />
                     </div>

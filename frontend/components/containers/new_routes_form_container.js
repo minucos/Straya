@@ -5,7 +5,7 @@ import { createLocation } from "../../actions/locations_actions";
 
 const mapStateToProps = (state, ownProps) => {
     let athleteId = state.session.id;
-
+    let errors = state.errors.routes;
     return ({
         route: {
             title: "", 
@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
             creatorId: athleteId,
             locations: new Array(),
         },
+        errors
     })
 };
 
