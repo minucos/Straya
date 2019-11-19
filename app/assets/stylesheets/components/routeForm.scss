@@ -35,6 +35,19 @@
     font-size: 15px;
     padding-left: 10px;
 }
+
+.route-input-error {
+    height: 40px;
+    margin: 5px 10px;
+    font-size: 15px;
+    padding-left: 10px;
+    border: 1px solid red;
+}
+
+.route-input-error::placeholder {
+    color: red;
+}
+
 #route-title {
     width: 250px;
 }
