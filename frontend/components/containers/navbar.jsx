@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AuthRoute } from '../../utils/route_util';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = (props) => {
 
@@ -63,7 +65,7 @@ const NavBar = (props) => {
 
                         <div className="nav-dropdown training-nav">
                             <button className="nav-dropdown-btn training-nav">
-                                Training
+                                <div>Training</div><FontAwesomeIcon icon={faAngleDown} />
                             </button>
                             <div className="nav-dropdown-content training-nav">
                                 <Link to="/athlete/routes">
@@ -84,7 +86,7 @@ const NavBar = (props) => {
                             <button 
                                 className="nav-dropdown-btn profile-nav"
                                 id="profile-nav">
-                                {profilePhoto}⌄
+                                {profilePhoto}<FontAwesomeIcon icon={faAngleDown}/>
                             </button>
                             <div className="nav-dropdown-content profile-nav">
                                 <Link to="/athlete/profile">
