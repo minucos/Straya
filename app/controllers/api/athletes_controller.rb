@@ -25,6 +25,12 @@ class Api::AthletesController < ApplicationController
         @athletes = Athlete.where('id = ? OR id IN (?)', current_user.id, followees)
     end
 
+    def feed
+        @feed_items = current_user.news_feed(params[:page])
+
+        render :news_feed
+    end
+
     private
 
     def athlete_params

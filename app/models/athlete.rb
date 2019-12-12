@@ -2,7 +2,6 @@ class Athlete < ApplicationRecord
     validates :email, :session_token, :password_digest, presence: true
     validates :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
-    # validate :ensure_profile_photo
 
     after_initialize :ensure_session_token
     
@@ -41,12 +40,6 @@ class Athlete < ApplicationRecord
 
     has_one_attached :profile_photo
 
-    def ensure_profile_photo
-        if !self.profile_photo.attached?
-            
-        end
-    end
-
     def self.find_by_credentials(email, password)
         athlete = Athlete.find_by(email: email)
         
@@ -59,7 +52,6 @@ class Athlete < ApplicationRecord
     
     def password=(password)
         @password = password
-        
         self.password_digest = BCrypt::Password.create(password)
     end 
     
@@ -77,9 +69,14 @@ class Athlete < ApplicationRecord
 
     def reset_session_token!
         self.session_token = generate_session_token!
-        
         self.save!
-
         self.session_token 
     end 
+
+    def news_feed
+        all_workouts = current_user.workouts + current_user.followed_workouts
+        all_routes = current_user.routes + current_user.followed_routes
+        all_items = all_workouts + all_routes
+        @newsfeed = all_items.sort { |a,b| a.created_at <=> b.created_at }
+    end
 end
