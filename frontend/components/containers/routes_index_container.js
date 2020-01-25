@@ -3,21 +3,23 @@ import Routes from "./routes_index";
 import { fetchRoutes, deleteRoute } from "../../actions/routes_actions";
 
 const mapStateToProps = (state) => {
-    let routes = Object.values(state.entities.routes).filter( route => route.creator_id === state.session.id);
+    let routes = Object.values(state.entities.routes)
+        .filter( route => route.creator_id === state.session.id)
+        .reverse();
     let locations = Object.values(state.entities.locations);
     let athlete = state.entities.athletes[state.session.id];
 
-    debugger
     return ({
         routes: routes,
         locations: locations,
         athlete: athlete,
+        totalRoutes: state.ui.count
     })
 }
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        fetchRoutes: () => dispatch(fetchRoutes()),
+        fetchRoutes: (page) => dispatch(fetchRoutes(page)),
         deleteRoute: (routeId) => dispatch(deleteRoute(routeId)),
     })
 }

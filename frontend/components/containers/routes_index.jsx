@@ -1,12 +1,35 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import RouteIndexItem from "./route_index_item.jsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faChevronCircleLeft, 
+    faChevronCircleRight 
+} from '@fortawesome/free-solid-svg-icons';
 
 class RouteIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 1
+        }
+    }
 
     componentDidMount() {
-        this.props.fetchRoutes();
+        this.props.fetchRoutes(this.state.page);
     };
+
+    componentDidUpdate(prevProps,prevState) {
+        if (prevState.page !== this.state.page) {
+            this.props.fetchRoutes(this.state.page);
+        }
+    }
+
+    turnPage(page) {
+        this.setState({
+            page
+        })
+    }
 
     render() {
         if (this.props.routes.length === 0) {
@@ -26,6 +49,8 @@ class RouteIndex extends React.Component {
                 />
             )
         })
+
+        let lastPage = this.props.totalRoutes === (page + 1) * limit || events.length < limit;
 
         return (
             <div className="routes-page">
@@ -50,6 +75,22 @@ class RouteIndex extends React.Component {
                     <ul className="route-list">
                         {routes}
                     </ul>
+                    <div className="page-buttons">
+                        <button
+                            className={lastPage ? 'page-turn disabled' : 'page-turn'}
+                            onClick={lastPage ? null : () => this.turnPage(1)}
+                        >
+                            <FontAwesomeIcon icon={faChevronCircleLeft}/>
+                            <span>prev</span>
+                        </button>
+                        <button
+                            className={lastPage ? 'page-turn disabled' : 'page-turn'}
+                            onClick={lastPage ? null : () => this.turnPage(1)}
+                        >
+                            <FontAwesomeIcon icon={faChevronCircleRight}/>
+                            <span>next</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         )

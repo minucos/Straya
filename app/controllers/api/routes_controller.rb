@@ -37,7 +37,15 @@ class Api::RoutesController < ApplicationController
     end 
 
     def index
-        @routes = Route.all.includes(:locations, :creator)
+        if params[:page]
+            @routes = Route.all
+                .includes(:locations, :creator)
+                .order(created_at: :desc)
+                .page(params[:page]).per(8)
+        else
+            @routes = Route.all
+                .includes(:locations, :creator)
+        end
     end 
 
     def update

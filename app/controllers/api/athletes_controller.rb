@@ -25,8 +25,19 @@ class Api::AthletesController < ApplicationController
         @athletes = Athlete.where('id = ? OR id IN (?)', current_user.id, followees)
     end
 
-    def feed
-        @feed_items = current_user.news_feed(params[:page])
+    def newsfeed
+        feed_items = current_user.news_feed(params[:page])
+
+        @workouts = feed_items.select{ |item| item.is_a?(Workout) }
+        @routes = feed_items.select{ |item| item.is_a?(Route) }
+        @athletes = []
+        feed_items.each do |item|
+            if item.is_a?(Workout)
+                @athletes << item.athlete
+            else
+                @athletes << item.creator
+            end
+        end
 
         render :news_feed
     end

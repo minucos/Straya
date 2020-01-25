@@ -62,7 +62,7 @@ class WorkoutsForm extends React.Component {
         if (this.state.photoFile) {
             formData.append("workout[photo]", this.state.photoFile)
         }
-        debugger
+        
         this.props.action(formData)
             .then(() => this.props.history.push("/athlete/dashboard"));
     };

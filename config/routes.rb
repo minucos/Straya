@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
 
-    resources :athletes, only: [:create, :show, :index]
+    resources :athletes, only: [:create, :show, :index] do
+      collection do
+        get :newsfeed 
+      end
+    end
 
     resources :routes, only: [:create, :show, :index, :update, :destroy]
 

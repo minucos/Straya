@@ -24,3 +24,5 @@ json.athletes do
     end
   end
 end
+
+json.count @routes.length

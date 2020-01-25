@@ -16,7 +16,6 @@ const RoutesErrorsReducer = (oldState = defaultState, action) => {
     const nextState = Object.assign({},oldState);
     switch (action.type) {
         case RECEIVE_ROUTE_ERRORS:
-            debugger
             action.errors.forEach( err => {
                 nextState[errors[err]] = err
             });

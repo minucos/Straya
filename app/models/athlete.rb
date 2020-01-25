@@ -73,10 +73,14 @@ class Athlete < ApplicationRecord
         self.session_token 
     end 
 
-    def news_feed
-        all_workouts = current_user.workouts + current_user.followed_workouts
-        all_routes = current_user.routes + current_user.followed_routes
+    def news_feed(page)
+        all_workouts = workouts.includes(:athlete) + 
+                        followed_workouts.includes(:athlete)
+        all_routes = routes.includes(:creator,:locations) + 
+                        followed_routes.includes(:creator,:locations)
         all_items = all_workouts + all_routes
-        @newsfeed = all_items.sort { |a,b| a.created_at <=> b.created_at }
+        newsfeed = all_items
+            .sort { |a,b| b.created_at <=> a.created_at }
+            .slice(page.to_i * 20, 20)
     end
 end

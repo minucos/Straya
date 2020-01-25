@@ -12,3 +12,10 @@ export const fetchAthlete = (athleteId) => {
         data: athleteId
     })
 }
+
+export const fetchNewsfeed = (page) => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/athletes/newsfeed?page=${page}`
+    })
+}
