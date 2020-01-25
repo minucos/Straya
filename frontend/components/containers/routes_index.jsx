@@ -25,9 +25,10 @@ class RouteIndex extends React.Component {
         }
     }
 
-    turnPage(page) {
+    turnPage(n) {
+        debugger
         this.setState({
-            page
+            page: this.page + n
         })
     }
 
@@ -49,8 +50,10 @@ class RouteIndex extends React.Component {
                 />
             )
         })
+        let { totalRoutes } = this.props;
+        let { page } = this.state;
 
-        let lastPage = this.props.totalRoutes === (page + 1) * limit || events.length < limit;
+        let lastPage = totalRoutes === (page) * 8 || routes.length < 8;
 
         return (
             <div className="routes-page">
