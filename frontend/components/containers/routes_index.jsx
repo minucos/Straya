@@ -26,9 +26,8 @@ class RouteIndex extends React.Component {
     }
 
     turnPage(n) {
-        debugger
         this.setState({
-            page: this.page + n
+            page: this.state.page + n
         })
     }
 
@@ -80,8 +79,8 @@ class RouteIndex extends React.Component {
                     </ul>
                     <div className="page-buttons">
                         <button
-                            className={lastPage ? 'page-turn disabled' : 'page-turn'}
-                            onClick={lastPage ? null : () => this.turnPage(1)}
+                            className={page === 1 ? 'page-turn disabled' : 'page-turn'}
+                            onClick={page === 1 ? null : () => this.turnPage(-1)}
                         >
                             <FontAwesomeIcon icon={faChevronCircleLeft}/>
                             <span>prev</span>
@@ -90,8 +89,8 @@ class RouteIndex extends React.Component {
                             className={lastPage ? 'page-turn disabled' : 'page-turn'}
                             onClick={lastPage ? null : () => this.turnPage(1)}
                         >
-                            <FontAwesomeIcon icon={faChevronCircleRight}/>
                             <span>next</span>
+                            <FontAwesomeIcon icon={faChevronCircleRight}/>
                         </button>
                     </div>
                 </div>

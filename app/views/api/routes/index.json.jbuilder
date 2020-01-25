@@ -25,4 +25,4 @@ json.athletes do
   end
 end
 
-json.count @routes.length
+json.count current_user.routes.length
