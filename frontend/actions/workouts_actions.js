@@ -35,8 +35,8 @@ const receiveErrors = (errors) => {
     })
 }
 
-export const fetchWorkouts = () => dispatch => (
-    workoutsAPIUtil.fetchWorkouts()
+export const fetchWorkouts = (params) => dispatch => (
+    workoutsAPIUtil.fetchWorkouts(params)
         .then(workouts => dispatch(receiveAllWorkouts(workouts)),
             errors => dispatch(receiveErrors(errors.responseJSON))
         )

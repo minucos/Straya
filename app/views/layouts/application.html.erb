@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Straya</title>
+    <link rel = "icon" type = "image/png" href = "<%= image_url('straya-favicon.ico') %>">
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps[:api_key]}" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>

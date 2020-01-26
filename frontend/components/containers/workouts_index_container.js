@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        fetchWorkouts: () => dispatch(fetchWorkouts()),
+        fetchWorkouts: (query) => dispatch(fetchWorkouts(query)),
         deleteWorkout: (workoutId) => dispatch(deleteWorkout(workoutId)),
         sortDate: () => dispatch(sortDate()),
         sortTitle: () => dispatch(sortTitle()),

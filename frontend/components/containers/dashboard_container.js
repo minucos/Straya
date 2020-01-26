@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import Dashboard from "./dashboard";
-import { fetchWorkouts } from "../../actions/workouts_actions";
-import { fetchRoutes } from "../../actions/routes_actions";
-import { fetchAthletes, fetchNewsfeed } from "../../actions/athletes_actions";
+import { fetchNewsfeed } from "../../actions/athletes_actions";
 import { debounce } from 'debounce';
 
 const mapStateToProps = (state) => {
@@ -34,9 +32,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        fetchWorkouts: () => dispatch(fetchWorkouts()),
-        fetchRoutes: () => dispatch(fetchRoutes()),
-        fetchAthletes: () => dispatch(fetchAthletes()),
         fetchNewsfeed: (page) => debounce(dispatch(fetchNewsfeed(page)),200)
     })
 }

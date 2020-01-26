@@ -20,7 +20,17 @@ class Api::WorkoutsController < ApplicationController
     end 
 
     def index
-        @workouts = Workout.all
+        @workouts = current_user.workouts
+
+        if params[:category] == 'run' || params[:category] == 'ride'
+            @workouts = @workouts.where(workout_type: params[:category])
+        end
+
+        if params[:query].length > 0
+            @workouts = @workouts.where("lower(title) LIKE ?", "%#{params[:query]}%")
+        end
+
+        @workouts
     end
 
     def update

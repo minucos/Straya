@@ -99,8 +99,8 @@ end
 #Routes
 p 'creating routes...'
 route1 = Route.create!(title: "My favourite route", description: "home to astro's", creator_id: toby.id)
-route2 = Route.create!(title: "Morning dog run", description: "walk to silver towers", creator_id: andy.id)
-route3 = Route.create!(title: "Run to Central Park", description: "up to central park", creator_id: holly.id)
+route2 = Route.create!(title: "Morning dog run", description: "walk to silver towers", creator_id: toby.id)
+route3 = Route.create!(title: "Run to Central Park", description: "up to central park", creator_id: toby.id)
 
 # Locations
 p 'creating locations...'
