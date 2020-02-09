@@ -31,8 +31,8 @@ class Dashboard extends React.Component {
     }
 
     formatDate(dateString) {
-        const months = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
         ];
 
         let date = dateString.getDate();
@@ -83,19 +83,19 @@ class Dashboard extends React.Component {
             workout =>  workout.athlete_id === this.props.athlete.id
             );
 
-        let last = workouts.length - 1;
+        // let last = workouts.length - 1;
 
 
         if (workouts.length > 0) {
-            let title = workouts[last].title;
-            let type = workouts[last].workout_type;
+            let title = workouts[0].title.length > 15 ? workouts[0].title.slice(0, 15) + '...' : workouts[0].title;
+            let type = workouts[0].workout_type;
             let symbol = "👟";
-            let date = this.formatDate(new Date(workouts[last].created_at));
+            let date = this.formatDate(new Date(workouts[0].created_at));
             
             if (type === 'ride') {
                 symbol = "🚲";
             }
-            lastActivity = `${title} ${symbol} ∙ ${date}`;
+            lastActivity = `${title} ∙ ${symbol} ∙ ${date}`;
         }
 
         return (
