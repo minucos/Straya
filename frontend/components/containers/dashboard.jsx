@@ -83,8 +83,6 @@ class Dashboard extends React.Component {
             workout =>  workout.athlete_id === this.props.athlete.id
             );
 
-        // let last = workouts.length - 1;
-
 
         if (workouts.length > 0) {
             let title = workouts[0].title.length > 15 ? workouts[0].title.slice(0, 15) + '...' : workouts[0].title;
