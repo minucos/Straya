@@ -81,13 +81,14 @@ workout_types = ['run', 'ride']
 athlete_ids = [andy.id, holly.id, toby.id]
 dates = (0..180).to_a
 
-350.times do |n|
+1000.times do |n|
+    workout_type = workout_types.sample
     distance = workout_type == 'run' ? rand(5.0..15.0).round(1) : rand(20.0..45.0).round(1)
     duration = workout_type == 'run' ? (distance * 300) + rand(-100..100) : (distance * 120) + rand(-20..20)
     Workout.create!({
         title: Faker::TvShows::Simpsons.location, 
         body: Faker::TvShows::Simpsons.quote, 
-        workout_type: workout_types.sample, 
+        workout_type: workout_type, 
         duration: duration, 
         distance: distance, 
         athlete_id: athlete_ids.sample, 
@@ -98,8 +99,8 @@ end
 #Routes
 p 'creating routes...'
 route1 = Route.create!(title: "My favourite route", description: "home to astro's", creator_id: toby.id)
-route2 = Route.create!(title: "Morning dog run", description: "walk to silver towers", creator_id: andy.id)
-route3 = Route.create!(title: "Run to Central Park", description: "up to central park", creator_id: holly.id)
+route2 = Route.create!(title: "Morning dog run", description: "walk to silver towers", creator_id: toby.id)
+route3 = Route.create!(title: "Run to Central Park", description: "up to central park", creator_id: toby.id)
 
 # Locations
 p 'creating locations...'

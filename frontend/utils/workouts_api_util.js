@@ -1,7 +1,7 @@
-export const fetchWorkouts = () => (
+export const fetchWorkouts = ({query,category}) => (
     $.ajax({
         method: "GET",
-        url: "api/workouts",
+        url: `api/workouts?query=${query}&category=${category}`
     })
 );
 

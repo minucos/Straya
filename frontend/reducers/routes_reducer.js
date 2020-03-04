@@ -6,6 +6,7 @@ import {
     RECEIVE_CURRENT_USER,
     LOGOUT_CURRENT_USER,
 } from "../actions/session_actions";
+import { RECEIVE_NEWSFEED } from "../actions/athletes_actions";
 
 const RoutesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -30,6 +31,11 @@ const RoutesReducer = (oldState = {}, action) => {
 
         case LOGOUT_CURRENT_USER:
             return {}
+
+        case RECEIVE_NEWSFEED:
+            newState = Object.assign({}, oldState, action.routes);
+
+            return newState;
             
         default:
             return oldState;

@@ -5,12 +5,13 @@ export const RECEIVE_ROUTE = "RECEIVE_ROUTE";
 export const REMOVE_ROUTE = "REMOVE_ROUTE";
 export const RECEIVE_ROUTE_ERRORS = "RECEIVE_ROUTE_ERRORS";
 
-const receiveAllRoutes = ({routes, locations, athletes}) => {
+const receiveAllRoutes = ({routes, locations, athletes, count}) => {
     return ({
         type: RECEIVE_ALL_ROUTES,
         routes: routes,
         locations: locations,
-        athletes: athletes
+        athletes: athletes,
+        count
     })
 }
 
@@ -37,8 +38,8 @@ const receiveErrors = (errors) => {
     })
 }
 
-export const fetchRoutes = () => dispatch => (
-    routesAPIUtil.fetchRoutes()
+export const fetchRoutes = (page) => dispatch => (
+    routesAPIUtil.fetchRoutes(page)
     .then( payload => dispatch(receiveAllRoutes(payload)),
         errors => dispatch(receiveErrors(errors.responseJSON))
     )
@@ -53,7 +54,11 @@ export const fetchRoute = (id) => dispatch => (
 
 export const createRoute = (route, locations) => dispatch => (
     routesAPIUtil.createRoute(route, locations)
-        .then(payload => dispatch(receiveRoute(payload)),
+        .then(
+            payload => {
+            dispatch(receiveRoute(payload));
+            return payload.route.id
+            },
             errors => dispatch(receiveErrors(errors.responseJSON))
     )
 )

@@ -100,7 +100,7 @@ class RoutesForm extends React.Component {
         
 
         this.props.action(newRoute, this.state.locations )
-            .then((payload) => this.props.history.push(`/routes/${payload.route.id}`))
+            .then(() => this.props.history.push(`/athlete/routes`))
     };
 
     render() {

@@ -7,6 +7,7 @@ import {
     RECEIVE_CURRENT_USER,
     LOGOUT_CURRENT_USER,
 } from "../actions/session_actions";
+import { RECEIVE_NEWSFEED } from "../actions/athletes_actions";
 
 const LocationsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -19,6 +20,11 @@ const LocationsReducer = (oldState = {}, action) => {
 
         case RECEIVE_ROUTE:
             newState = Object.assign({}, oldState, action.locations );
+
+            return newState;
+        
+        case RECEIVE_NEWSFEED:
+            newState = Object.assign({}, oldState, action.locations);
 
             return newState;
 

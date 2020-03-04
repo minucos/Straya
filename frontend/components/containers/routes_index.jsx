@@ -1,12 +1,35 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import RouteIndexItem from "./route_index_item.jsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faChevronCircleLeft, 
+    faChevronCircleRight 
+} from '@fortawesome/free-solid-svg-icons';
 
 class RouteIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 1
+        }
+    }
 
     componentDidMount() {
-        this.props.fetchRoutes();
+        this.props.fetchRoutes(this.state.page);
     };
+
+    componentDidUpdate(prevProps,prevState) {
+        if (prevState.page !== this.state.page) {
+            this.props.fetchRoutes(this.state.page);
+        }
+    }
+
+    turnPage(n) {
+        this.setState({
+            page: this.state.page + n
+        })
+    }
 
     render() {
         if (this.props.routes.length === 0) {
@@ -26,6 +49,10 @@ class RouteIndex extends React.Component {
                 />
             )
         })
+        let { totalRoutes } = this.props;
+        let { page } = this.state;
+
+        let lastPage = totalRoutes === (page) * 8 || routes.length < 8;
 
         return (
             <div className="routes-page">
@@ -50,6 +77,22 @@ class RouteIndex extends React.Component {
                     <ul className="route-list">
                         {routes}
                     </ul>
+                    <div className="page-buttons">
+                        <button
+                            className={page === 1 ? 'page-turn disabled' : 'page-turn'}
+                            onClick={page === 1 ? null : () => this.turnPage(-1)}
+                        >
+                            <FontAwesomeIcon icon={faChevronCircleLeft}/>
+                            <span>prev</span>
+                        </button>
+                        <button
+                            className={lastPage ? 'page-turn disabled' : 'page-turn'}
+                            onClick={lastPage ? null : () => this.turnPage(1)}
+                        >
+                            <span>next</span>
+                            <FontAwesomeIcon icon={faChevronCircleRight}/>
+                        </button>
+                    </div>
                 </div>
             </div>
         )

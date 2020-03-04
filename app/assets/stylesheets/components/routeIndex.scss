@@ -135,9 +135,27 @@
     padding: 0px 15px;
 }
 
- .route-footer {
+.route-footer {
     font-size: 12px;
     padding: 10px 20px;
     margin: 0px;
     background: #F0F0F0;
- }
+}
+
+.page-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .page-turn {
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: inherit;
+        font-size: 20px;
+        color: rgb(252,76,3);
+    }
+
+    .disabled {
+        color: #CCCCD0;
+    }
+}

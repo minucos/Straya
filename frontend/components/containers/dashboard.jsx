@@ -3,16 +3,36 @@ import { Link } from 'react-router-dom';
 import AcitvityFeedItem from "./activity_feed_item";
 
 class Dashboard extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            page: 0
+        };
+        this.fetchMoreItems = this.fetchMoreItems.bind(this);
+    }
+
+    fetchMoreItems(e) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            this.setState({ page: this.state.page + 1 }, () => {
+                this.props.fetchNewsfeed(this.state.page);
+            })
+        }
+    }
 
     componentDidMount() {
-        this.props.fetchAthletes()
-        .then(() => this.props.fetchWorkouts())
-        .then(() => this.props.fetchRoutes());
+        this.props.fetchNewsfeed(this.state.page);
+        
+        document.addEventListener('scroll', this.fetchMoreItems)
     };
 
+    componentWillUnmount() {
+        document.removeEventListener('scroll',this.fetchMoreItems);
+    }
+
     formatDate(dateString) {
-        const months = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
         ];
 
         let date = dateString.getDate();
@@ -41,15 +61,13 @@ class Dashboard extends React.Component {
 
     render() {
 
-        if (Object.values(this.props.workouts).length < 1 || 
-            Object.values(this.props.routes).length < 1 || 
-            Object.values(this.props.locations).length < 1) {
+        if (this.props.feedItems.length === 0) {
             return null;
         }
 
         let { photoUrl } = this.props.athlete;
 
-        let activityFeed = this.buildFeed().map( activity => {
+        let activityFeed = this.props.feedItems.map( activity => {
             return (
                 <AcitvityFeedItem
                     key={`${activity.title}-${activity.id}`}
@@ -65,19 +83,17 @@ class Dashboard extends React.Component {
             workout =>  workout.athlete_id === this.props.athlete.id
             );
 
-        let last = workouts.length - 1;
-
 
         if (workouts.length > 0) {
-            let title = workouts[last].title;
-            let type = workouts[last].workout_type;
+            let title = workouts[0].title.length > 15 ? workouts[0].title.slice(0, 15) + '...' : workouts[0].title;
+            let type = workouts[0].workout_type;
             let symbol = "👟";
-            let date = this.formatDate(new Date(workouts[last].created_at));
+            let date = this.formatDate(new Date(workouts[0].created_at));
             
             if (type === 'ride') {
                 symbol = "🚲";
             }
-            lastActivity = `${title} ${symbol} ∙ ${date}`;
+            lastActivity = `${title} ∙ ${symbol} ∙ ${date}`;
         }
 
         return (
@@ -98,7 +114,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li>
                                     <div className="profile-subheading">Activities</div>
-                                    <div id="activities-total">{workouts.length}</div>
+                                    <div id="activities-total">{this.props.athlete.total_workouts}</div>
                                 </li>
                             </ul>
                         </div>
