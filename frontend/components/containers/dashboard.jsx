@@ -36,7 +36,7 @@ class Dashboard extends React.Component {
         ];
 
         let date = dateString.getDate();
-        let month = months[dateString.getMonth() + 1];
+        let month = months[dateString.getMonth()];
         let year = dateString.getFullYear();
 
         return `${month} ${date}, ${year}`;
