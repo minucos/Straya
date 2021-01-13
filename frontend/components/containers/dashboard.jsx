@@ -82,8 +82,19 @@ class Dashboard extends React.Component {
         let workouts = Object.values(this.props.workouts).filter( 
             workout =>  workout.athlete_id === this.props.athlete.id
             );
-
-
+        debugger
+        workouts = workouts.sort((a,b) => {
+            let date1 = a.created_at;
+            let date2 = b.created_at;
+            if (date1 < date2) {
+                return 1;
+            }
+            if (date1 > date2) {
+                return -1;
+            }
+            return 0;
+        });
+        debugger
         if (workouts.length > 0) {
             let title = workouts[0].title.length > 15 ? workouts[0].title.slice(0, 15) + '...' : workouts[0].title;
             let type = workouts[0].workout_type;
