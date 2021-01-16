@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     //TESTING
-    window.store = store
+    // window.store = store
     // end of TESTING
 
     delete window.currentUser
