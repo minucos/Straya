@@ -37,6 +37,8 @@ hollyPic = open("https://straya-dev.s3-us-west-1.amazonaws.com/holly_profile_pic
 p 'uploading hollyPic...'
 holly.profile_photo.attach(io: hollyPic, filename: 'holly_profile_pic.jpg')
 
+leo = Athlete.create!(email: 'leo@aa.io', fname: 'Leonardo', lname: 'Minucos', password: 'password')
+
 p 'creating more athletes...'
 bart = Athlete.create!(email: "bart@aa.io", fname: "Bart", lname: "Simpson", password: "password")
 homer = Athlete.create!(email: "Homer@aa.io", fname: "Homer", lname: "Simpson", password: "password")
@@ -67,18 +69,24 @@ follow9 = Follow.create!(follower_id: homer.id, followee_id: andy.id)
 follow10 = Follow.create!(follower_id: marge.id, followee_id: andy.id)
 follow11 = Follow.create!(follower_id: andy.id, followee_id: holly.id)
 follow12 = Follow.create!(follower_id: toby.id, followee_id: holly.id)
+follow13 = Follow.create!(follower_id: leo.id, followee_id: andy.id)
+follow14 = Follow.create!(follower_id: leo.id, followee_id: holly.id)
+follow15 = Follow.create!(follower_id: leo.id, followee_id: toby.id)
+follow16 = Follow.create!(follower_id: andy.id, followee_id: leo.id)
+follow17 = Follow.create!(follower_id: holly.id, followee_id: leo.id)
+follow18 = Follow.create!(follower_id: toby.id, followee_id: leo.id)
 
 users.each do |user|
     Follow.create!(follower_id: user.id, followee_id: andy.id)
     Follow.create!(follower_id: user.id, followee_id: holly.id)
     Follow.create!(follower_id: user.id, followee_id: toby.id)
-    Follow.create!(follower_id: [andy.id, holly.id, toby.id].sample, followee_id: user.id)
+    Follow.create!(follower_id: [andy.id, holly.id, toby.id, leo.id].sample, followee_id: user.id)
 end
 
 #Workouts
 p 'creating workouts...'
 workout_types = ['run', 'ride']
-athlete_ids = [andy.id, holly.id, toby.id]
+athlete_ids = [andy.id, holly.id, toby.id, leo.id]
 dates = (0..180).to_a
 
 1000.times do |n|
